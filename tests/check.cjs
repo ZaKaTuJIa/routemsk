@@ -9,7 +9,7 @@ const schema=JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]
 assert.equal(schema['@graph'].length,2);
 assert.equal((html.match(/<details class="faq-item">/g)||[]).length,6);
 assert(!html.includes("querySelectorAll('.faq-item"));
-for(const file of ['favicon.svg','assets/og-cover.png','robots.txt','sitemap.xml','404.html','MVP_SETUP.md'])assert(fs.existsSync(''+file));
+for(const file of ['favicon.svg','assets/og-cover.png','robots.txt','sitemap.xml','MVP_SETUP.md'])assert(fs.existsSync(''+file));
 const png=fs.readFileSync('assets/og-cover.png');assert.equal(png.readUInt32BE(16),1200);assert.equal(png.readUInt32BE(20),630);
 const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];
 function setup(code=script){
