@@ -5,6 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ROUTE/MSK — пропуска МКАД, ТТК и СК</title>
 <meta name="description" content="Оформление грузовых пропусков МКАД, ТТК и СК для ИП и ООО. 8 000 ₽ под ключ.">
+<link rel="canonical" href="https://routemsk.ru/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="ROUTE/MSK">
+<meta property="og:title" content="ROUTE/MSK — пропуска МКАД, ТТК и СК">
+<meta property="og:description" content="Оформление грузовых пропусков для ИП и ООО. 8 000 ₽ под ключ. Оплата после оформления и проверки в реестре.">
+<meta property="og:url" content="https://routemsk.ru/">
+<meta property="og:image" content="https://routemsk.ru/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ROUTE/MSK — грузовые пропуска МКАД, ТТК и СК">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#2563eb">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://routemsk.ru/#website",
+      "url": "https://routemsk.ru/",
+      "name": "ROUTE/MSK",
+      "inLanguage": "ru-RU"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://routemsk.ru/#service",
+      "name": "Оформление грузовых пропусков МКАД, ТТК и СК",
+      "url": "https://routemsk.ru/",
+      "areaServed": {
+        "@type": "City",
+        "name": "Москва"
+      },
+      "description": "Оформление грузовых пропусков для ИП и ООО."
+    }
+  ]
+}
+</script>
 <style>
 :root{
   --ink:#0b1220;--muted:#64748b;--line:#e2e8f0;--soft:#f5f7fa;--blue:#2563eb;
@@ -68,8 +107,8 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
 
 .faq{display:grid;grid-template-columns:.72fr 1.28fr;gap:46px}.faq-side{display:flex;flex-direction:column;justify-content:space-between;gap:22px}
 .contact-card{padding:18px;border:1px solid var(--line);border-radius:16px;background:#f8fafc}.contact-card strong{display:block;margin-bottom:6px}.contact-card p{margin:0 0 14px;color:var(--muted);font-size:14px}
-.faq-item{border-bottom:1px solid var(--line)}.faq-item button{width:100%;padding:17px 0;background:none;border:0;display:flex;justify-content:space-between;font-size:16px;font-weight:700;cursor:pointer;text-align:left}
-.faq-answer{display:none;color:var(--muted);padding-bottom:16px}.faq-item.open .faq-answer{display:block}
+.faq-item{border-bottom:1px solid var(--line)}.faq-item summary{width:100%;padding:17px 0;background:none;border:0;display:flex;justify-content:space-between;font-size:16px;font-weight:700;cursor:pointer;text-align:left}
+.faq-answer{display:none;color:var(--muted);padding-bottom:16px}.faq-item[open] .faq-answer{display:block}
 .final{background:var(--blue);color:#fff;padding:52px 0}.final-inner{display:flex;align-items:center;justify-content:space-between;gap:34px}.final .btn{white-space:nowrap}
 .footer{background:#080d16;color:#fff;padding:36px 0}.footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:28px}.footer p,.footer a{color:#94a3b8}.footer a{display:block;margin-bottom:7px}
 [hidden]{display:none!important}
@@ -97,13 +136,24 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
 .upload-status:empty{display:none}
 .legal-pending{display:block;font-size:13px;color:#94a3b8;margin:8px 0}
 @media(max-width:700px){[id]{scroll-margin-top:76px}.upload-card{padding:16px 18px}.upload-zone{min-height:140px}.upload-ready{margin-top:6px}.upload-purpose{margin-top:8px}}
+.skip-link{position:absolute;top:-80px;left:16px;z-index:100;background:#fff;padding:12px 16px}
+.skip-link:focus{top:8px}
+.faq-item summary{list-style:none;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";flex-shrink:0}
+.faq-item[open] summary::after{content:"−"}
+summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.process-wrap:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.hero-grid>*{min-width:0}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#top">Перейти к содержимому</a>
 <header class="header">
   <div class="container header__inner">
     <a class="logo" href="#top">ROUTE<span>/</span>MSK</a>
-    <nav class="nav">
+    <nav class="nav" aria-label="Основная навигация">
       <a href="#prices">Цены</a><a href="#process">Как работаем</a><a href="#fleet">Автопаркам</a><a href="#documents">Документы</a><a href="#proof">Доверие</a><a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn-dark" href="#check">Проверить по СТС</a>
@@ -122,7 +172,7 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
         <div>✓ Рассмотрение годового — 10 рабочих дней с даты подачи</div>
         <div>✓ Повторные подачи после отказа без доплаты</div>
       </div>
-      <p class="hero-next">Начните с СТС — загрузка справа <span>→</span></p>
+      <p class="hero-next">Начните с СТС — выбор файла справа <span>→</span></p>
       <p class="micro">Для первичной проверки достаточно одного СТС</p>
     </div>
 
@@ -137,7 +187,7 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
         <small>JPG, PNG или PDF · до 10 МБ</small>
       </label>
       <p id="uploadStatus" class="upload-status" role="status" aria-live="polite"></p>
-      <p class="upload-purpose" id="stsPurpose">Файл остаётся на вашем устройстве. В мессенджере прикрепите его вручную.</p>
+      <p class="upload-purpose" id="stsPurpose">Выбор файла необязателен. Можно сразу открыть мессенджер. Файл остаётся на вашем устройстве — прикрепите его в переписке вручную.</p>
       <div class="upload-ready" data-messenger-container>
         <span>Отправьте СТС в удобный мессенджер:</span>
         <div class="messenger-actions"><a data-messenger-link href="https://t.me/Mary_Romanova_tg" data-goal="telegram_click" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
@@ -170,7 +220,7 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
         <ul>
           <li>Временный пропуск включён</li><li>Оплата после оформления</li><li>Проверка пропуска в реестре</li><li>Повторные подачи без доплаты</li>
         </ul>
-        <a class="btn btn-primary" href="#check">Загрузить СТС</a>
+        <a class="btn btn-primary" href="#check">Выбрать СТС</a>
       </article>
       <article class="card">
         <h3>Временный пропуск</h3>
@@ -194,7 +244,7 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
       <h2>От СТС до пропуска — понятный маршрут</h2>
     </div>
     <div class="mobile-swipe-hint">На телефоне листайте этапы →</div>
-    <div class="process-wrap">
+    <div class="process-wrap" tabindex="0" role="region" aria-label="Этапы оформления; прокрутите вправо для следующих этапов">
       <div class="route-process">
         <article class="route-step"><div class="num">01</div><h3>Проверяем</h3><p>На первом этапе достаточно СТС.</p></article>
         <article class="route-step"><div class="num">02</div><h3>Готовим</h3><p>Собираем и подготавливаем заявление.</p></article>
@@ -256,7 +306,7 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
       <div class="docbox">
         <h3>Для первоначальной проверки</h3>
         <div class="main-doc">СТС</div>
-        <a class="btn btn-primary" href="#check">Прикрепить СТС</a>
+        <a class="btn btn-primary" href="#check">Выбрать СТС</a>
       </div>
       <div class="docbox">
         <h3>Для полного оформления могут понадобиться</h3>
@@ -304,12 +354,12 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
       </div>
     </div>
     <div>
-      <div class="faq-item"><button>Сколько занимает оформление?<span>+</span></button><div class="faq-answer">Срок рассмотрения годового пропуска — 10 рабочих дней с даты подачи заявления на портал. Временный пропуск оформляется за 1 рабочий день.</div></div>
-      <div class="faq-item"><button>Какие документы нужны?<span>+</span></button><div class="faq-answer">Для первичной проверки достаточно СТС. Полный комплект документов зависит от конкретной ситуации.</div></div>
-      <div class="faq-item"><button>Когда происходит оплата?<span>+</span></button><div class="faq-answer">Оплата годового оформления производится после оформления и проверки пропуска в реестре.</div></div>
-      <div class="faq-item"><button>Что происходит при отказе?<span>+</span></button><div class="faq-answer">Разбираемся в причине отказа и подаём повторно без дополнительной оплаты.</div></div>
-      <div class="faq-item"><button>Что если пропуск аннулировали?<span>+</span></button><div class="faq-answer">Разбираемся в причине и повторно подаём бесплатно до окончания первоначального срока действия. Исключение — штрафы клиента.</div></div>
-      <div class="faq-item"><button>Работаете с ИП и ООО?<span>+</span></button><div class="faq-answer">Да. Работаем как с ИП, так и с ООО.</div></div>
+      <details class="faq-item"><summary>Сколько занимает оформление?</summary><div class="faq-answer">Срок рассмотрения годового пропуска — 10 рабочих дней с даты подачи заявления на портал. Временный пропуск оформляется за 1 рабочий день.</div></details>
+      <details class="faq-item"><summary>Какие документы нужны?</summary><div class="faq-answer">Для первичной проверки достаточно СТС. Полный комплект документов зависит от конкретной ситуации.</div></details>
+      <details class="faq-item"><summary>Когда происходит оплата?</summary><div class="faq-answer">Оплата годового оформления производится после оформления и проверки пропуска в реестре.</div></details>
+      <details class="faq-item"><summary>Что происходит при отказе?</summary><div class="faq-answer">Разбираемся в причине отказа и подаём повторно без дополнительной оплаты.</div></details>
+      <details class="faq-item"><summary>Что если пропуск аннулировали?</summary><div class="faq-answer">Разбираемся в причине и повторно подаём бесплатно до окончания первоначального срока действия. Исключение — штрафы клиента.</div></details>
+      <details class="faq-item"><summary>Работаете с ИП и ООО?</summary><div class="faq-answer">Да. Работаем как с ИП, так и с ООО.</div></details>
     </div>
   </div>
 </section>
@@ -321,7 +371,7 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
       <h2>Для первичной проверки достаточно одного СТС</h2>
       <p>Без длинной анкеты и регистрации.</p>
     </div>
-    <a class="btn btn-white" href="#check">Прикрепить СТС →</a>
+    <a class="btn btn-white" href="#check">Выбрать СТС →</a>
   </div>
 </section>
 </main>
@@ -394,17 +444,6 @@ fileInput.addEventListener('change',()=>{
   }
   uploadTitle.textContent='Выбрать другой СТС';
   uploadStatus.textContent='Выбран файл: '+file.name+'. Не отправлен — прикрепите его в Telegram или WhatsApp вручную.';
-});
-document.querySelectorAll('.faq-item button').forEach((btn,index)=>{
-  const item=btn.closest('.faq-item'),answer=item.querySelector('.faq-answer');
-  answer.id='faq-answer-'+index;
-  btn.type='button';btn.setAttribute('aria-controls',answer.id);
-  btn.setAttribute('aria-expanded','false');
-  btn.addEventListener('click',()=>{
-    const open=item.classList.toggle('open');
-    btn.setAttribute('aria-expanded',String(open));
-    btn.querySelector('span').textContent=open?'−':'+';
-  });
 });
 </script>
 </body>
