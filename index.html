@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ROUTE/MSK — пропуска МКАД, ТТК и СК</title>
 <meta name="description" content="Оформление грузовых пропусков МКАД, ТТК и СК для ИП и ООО. 8 000 ₽ под ключ.">
@@ -398,14 +399,28 @@ summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
   </div>
 </footer>
 
-<!-- YANDEX_METRIKA_SLOT: после получения counter ID вставить официальный код
-счётчика из кабинета Метрики и указать тот же ID ниже. До этого сетевых запросов
-в Метрику нет. Не включать запись содержимого формы/документов. См. MVP_SETUP.md. -->
+<!-- Yandex Metrica: официальный загрузчик, минимальная аналитика. См. MVP_SETUP.md. -->
 <script>
 'use strict';
-const ROUTEMSK_CONFIG = Object.freeze({ metrikaCounterId: null });
+const ROUTEMSK_CONFIG = Object.freeze({ metrikaCounterId: 112716166 });
+function initMetrika() {
+  const id=ROUTEMSK_CONFIG.metrikaCounterId;
+  if (!Number.isSafeInteger(id) || id<=0) return;
+  try {
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1;k.src=r;a.parentNode.insertBefore(k,a)})
+    (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+    window.ym(id,'init',{
+      defer:true,clickmap:false,trackLinks:false,webvisor:false,
+      trackHash:false,ecommerce:false,sendTitle:false,accurateTrackBounce:true
+    });
+    // Один просмотр с постоянным URL: не передавать query/hash и внешний referrer.
+    window.ym(id,'hit','https://routemsk.ru/',{referer:'',title:'ROUTE/MSK'});
+  } catch (_) { /* Блокировщик счётчика не должен ломать выбор файла и ссылки. */ }
+}
+initMetrika();
 const GOALS = Object.freeze({telegram:'telegram_click',whatsapp:'whatsapp_click',
-  phone:'phone_click',uploadStart:'sts_upload_start',uploadSuccess:'sts_upload_success'});
+  phone:'phone_click',uploadStart:'sts_upload_start'});
 function trackGoal(name) {
   if (!Object.values(GOALS).includes(name)) return;
   // Только имя события: без имени файла, содержимого СТС и контактов клиента.
@@ -424,7 +439,7 @@ document.querySelectorAll('[data-goal]').forEach(link=>{
 async function submitStsToServer() {
   throw new Error('Автоматическая отправка не подключена. Прикрепите СТС в мессенджере вручную.');
 }
-// GOALS.uploadSuccess зарезервирован: вызывать только после подтверждённой
+// sts_upload_success отсутствует в разрешённых целях: добавить только после подтверждённой
 // сервером доставки документа. Выбор файла и переход в мессенджер НЕ являются успехом.
 const fileInput=document.getElementById('stsFile');
 const uploadTitle=document.getElementById('uploadTitle');
