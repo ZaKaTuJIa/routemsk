@@ -2,34 +2,36 @@
   "schema_version": 1,
   "project": "ROUTEMSK",
   "agent": "ROUTEMSK Night Shift",
-  "run_at": "2026-09-17T17:22:00+03:00",
+  "run_at": "2026-09-17T18:39:00+03:00",
   "status": "progress",
-  "summary": "Audited PR #1 crawl-control and regression-test changes. robots.txt and sitemap.xml are internally consistent, and tests explicitly guard analytics privacy, false STS success, Webmaster verification exclusion from sitemap, and core SEO assets. Production probe remains inconclusive in this environment.",
+  "summary": "Audited PR #1 index/mobile/accessibility changes and removed stale release-state wording from ROADMAP. PR remains draft and unmerged. Production HTTPS/redirect probe remains inconclusive from this environment.",
   "completed": [
-    "Reviewed PR #1 current state and confirmed it remains open, draft, mergeable and not merged",
-    "Audited robots.txt and confirmed sitemap points to the canonical HTTPS sitemap URL",
-    "Audited sitemap.xml and confirmed it contains only the canonical homepage",
-    "Audited tests/check.cjs and confirmed regression coverage for duplicate IDs, anchors, canonical, structured data, FAQ, analytics goals/privacy, STS validation, Webmaster verification file and sitemap exclusion"
+    "Confirmed PR #1 remains open, draft, mergeable and not merged",
+    "Reviewed index.html diff for mobile/accessibility changes including native details/summary FAQ, skip link, focus-visible states, reduced-motion handling and keyboard-focusable horizontal process",
+    "Reviewed STS copy and confirmed the UI states that file selection is optional and the file is not automatically sent",
+    "Refined ROADMAP release gates so historical HTTPS status is not confused with a fresh production check and real-device mobile testing is explicit"
   ],
   "changed": [
+    "ROADMAP.md on codex/v0.8-seo-foundation",
     "reports/routemsk/latest.json on command-center-reports"
   ],
   "checks": [
     {"name":"PR #1 state","result":"pass","details":"Open, draft, mergeable, not merged; base is main."},
-    {"name":"robots.txt / sitemap consistency","result":"pass","details":"robots.txt references https://routemsk.ru/sitemap.xml; sitemap contains only https://routemsk.ru/."},
-    {"name":"Regression-test coverage","result":"pass","details":"Tests cover SEO assets, internal anchors, analytics privacy and allowed goals, STS false-success prevention, file validation, and Webmaster verification exclusion from sitemap."},
-    {"name":"Production HTTPS/redirect probe","result":"unknown","details":"Fresh public-site response could not be established from the available web probe; no outage is inferred."},
-    {"name":"Command Center start-status sync","result":"fail","details":"Start runtime.json write was blocked by connector safety checks; useful audit continued."}
+    {"name":"Accessibility diff review","result":"pass","details":"Native FAQ disclosure, skip link, focus-visible handling, reduced-motion support and keyboard-accessible process region are present."},
+    {"name":"STS false-success UX","result":"pass","details":"Copy explicitly says file selection is optional and files remain on-device for manual messenger attachment."},
+    {"name":"Documentation freshness","result":"pass","details":"ROADMAP now separates historical HTTPS recovery from fresh per-run production verification and adds explicit real-device release gates."},
+    {"name":"Production HTTPS/redirect probe","result":"unknown","details":"Direct web probe/search could not establish a fresh public response; no outage is inferred."},
+    {"name":"Command Center sync","result":"pass","details":"Start runtime status and final report transport writes succeeded in this run."}
   ],
   "blockers": [
-    "COMMAND_CENTER_SYNC: start runtime.json write was blocked by connector safety checks",
     "Fresh production HTTP/HTTPS verification is unavailable from the current probe environment",
-    "Yandex account-side verification and legal/commercial facts require owner authorization or confirmed data"
+    "Yandex account-side verification and legal/commercial facts require owner authorization or confirmed data",
+    "Real Android/iPhone smoke-check requires access to physical devices"
   ],
   "next": [
-    "Audit PR #1 documentation and index.html for stale links/comments and accessibility/mobile regressions not covered by tests",
-    "Re-run production health probe when an independent network path is available",
-    "Keep PR draft until owner-side analytics/Webmaster verification and final release review are complete"
+    "Audit remaining PR documentation for stale statements and broken external references",
+    "Review contact-link behavior and mobile layout against release checklist without treating clicks as leads",
+    "Re-run production health probe when an independent network path is available"
   ],
   "links": [
     "https://github.com/ZaKaTuJIa/routemsk/pull/1",
