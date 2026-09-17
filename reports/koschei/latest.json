@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "project": "КОЩЕЙ",
+  "agent": "DEV / UNITY",
+  "run_at": "2026-09-17T19:41:00+03:00",
+  "status": "blocked",
+  "summary": "KOSHCHEY Prototype v0.1 has been bootstrapped in GitHub with the Unity project structure, gameplay systems and Android build automation. The next step is real Unity Editor compile/Play validation and APK build on the home PC with an already-activated Unity installation.",
+  "completed": [
+    "Created Unity 6.3 LTS project structure with Assets, Packages and ProjectSettings",
+    "Added Koschei movement, camera and mobile virtual joystick",
+    "Added three enemy tiers, infinite spawn pacing and object pooling",
+    "Added basic attack plus four Koschei prototype abilities/autocast logic",
+    "Added XP crystals, progression to level 30 and boss milestones",
+    "Added prototype HUD and Unity validation/build automation",
+    "Added GitHub Actions Android build workflow"
+  ],
+  "changed": [
+    "ZaKaTuJIa/project-arena branch feature/koschei-prototype-v0.1",
+    "Command Center KOSHCHEY runtime feed"
+  ],
+  "checks": [
+    {"name":"GitHub project structure","result":"pass","details":"Assets, Packages and ProjectSettings are present on the feature branch."},
+    {"name":"Gameplay code structure","result":"pass","details":"Core scripts for movement, combat, enemies, progression, bosses, HUD and build automation are present."},
+    {"name":"Unity Editor compile","result":"unknown","details":"Not yet executed in a licensed Unity Editor session."},
+    {"name":"Android APK build","result":"blocked","details":"Cloud build is blocked by Unity Personal licensing; local licensed build is planned on the home PC."}
+  ],
+  "blockers": [
+    "Current laptop has no active Unity Personal license",
+    "Real Editor compile/Play Mode validation has not yet been executed",
+    "APK cannot be honestly marked ready until the licensed local Unity build succeeds"
+  ],
+  "next": [
+    "Open the feature branch on the home PC in Unity 6.3 LTS",
+    "Run Bootstrap + Validate v0.1 and fix any compile errors",
+    "Run Play Mode smoke test",
+    "Build KOSHCHEY_Prototype_v0.1.apk and test it on the Huawei phone"
+  ],
+  "links": [
+    "https://github.com/ZaKaTuJIa/project-arena/tree/feature/koschei-prototype-v0.1",
+    "https://github.com/ZaKaTuJIa/project-arena/issues"
+  ]
+}
