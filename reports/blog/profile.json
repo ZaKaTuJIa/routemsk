@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "project": "БЛОГ",
+  "socials": [
+    {
+      "service": "Threads",
+      "handle": "@ivan_yageluk",
+      "url": "https://www.threads.com/@ivan_yageluk",
+      "connected": true
+    },
+    {
+      "service": "Telegram",
+      "handle": "@ZaKaTuJIa",
+      "url": "https://t.me/ZaKaTuJIa",
+      "connected": true
+    },
+    {
+      "service": "YouTube",
+      "handle": "UCl9Toum04L9hoCIyhUrvMGg",
+      "url": "https://youtube.com/channel/UCl9Toum04L9hoCIyhUrvMGg",
+      "connected": true
+    },
+    {
+      "service": "TikTok",
+      "handle": null,
+      "url": null,
+      "connected": false
+    }
+  ]
+}
