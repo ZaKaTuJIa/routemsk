@@ -2,33 +2,34 @@
   "schema_version": 1,
   "project": "ROUTEMSK",
   "agent": "ROUTEMSK Night Shift",
-  "run_at": "2026-09-17T17:11:00+03:00",
+  "run_at": "2026-09-17T17:22:00+03:00",
   "status": "progress",
-  "summary": "Command Center sync restored; PR #1 remains open/draft/mergeable. Reviewed release documentation and confirmed safe backlog sequencing. Independent production probe remained inconclusive in this environment.",
+  "summary": "Audited PR #1 crawl-control and regression-test changes. robots.txt and sitemap.xml are internally consistent, and tests explicitly guard analytics privacy, false STS success, Webmaster verification exclusion from sitemap, and core SEO assets. Production probe remains inconclusive in this environment.",
   "completed": [
-    "Started and synchronized live runtime status on the dedicated command-center-reports branch",
-    "Reviewed PR #1 metadata and release/backlog documentation",
-    "Confirmed PR #1 is open, draft, mergeable and not merged",
-    "Confirmed documentation keeps Webmaster verification, Metrica account checks, legal data and real-device tests as explicit owner-dependent tasks"
+    "Reviewed PR #1 current state and confirmed it remains open, draft, mergeable and not merged",
+    "Audited robots.txt and confirmed sitemap points to the canonical HTTPS sitemap URL",
+    "Audited sitemap.xml and confirmed it contains only the canonical homepage",
+    "Audited tests/check.cjs and confirmed regression coverage for duplicate IDs, anchors, canonical, structured data, FAQ, analytics goals/privacy, STS validation, Webmaster verification file and sitemap exclusion"
   ],
   "changed": [
-    "reports/routemsk/runtime.json on command-center-reports",
     "reports/routemsk/latest.json on command-center-reports"
   ],
   "checks": [
-    {"name":"PR #1 state","result":"pass","details":"Open, draft, mergeable, not merged; base main unchanged by this run."},
-    {"name":"Release/backlog documentation","result":"pass","details":"MVP_SETUP.md and ROADMAP.md distinguish completed technical work from owner-authorized and post-publication tasks."},
-    {"name":"Production HTTPS/redirect probe","result":"unknown","details":"Independent web probe could not establish a fresh routemsk.ru response from this environment; no outage is inferred."},
-    {"name":"Command Center transport","result":"pass","details":"Dedicated branch runtime/report writes succeeded in this run."}
+    {"name":"PR #1 state","result":"pass","details":"Open, draft, mergeable, not merged; base is main."},
+    {"name":"robots.txt / sitemap consistency","result":"pass","details":"robots.txt references https://routemsk.ru/sitemap.xml; sitemap contains only https://routemsk.ru/."},
+    {"name":"Regression-test coverage","result":"pass","details":"Tests cover SEO assets, internal anchors, analytics privacy and allowed goals, STS false-success prevention, file validation, and Webmaster verification exclusion from sitemap."},
+    {"name":"Production HTTPS/redirect probe","result":"unknown","details":"Fresh public-site response could not be established from the available web probe; no outage is inferred."},
+    {"name":"Command Center start-status sync","result":"fail","details":"Start runtime.json write was blocked by connector safety checks; useful audit continued."}
   ],
   "blockers": [
+    "COMMAND_CENTER_SYNC: start runtime.json write was blocked by connector safety checks",
     "Fresh production HTTP/HTTPS verification is unavailable from the current probe environment",
-    "Yandex Metrica/Webmaster account-side verification and legal/commercial facts require owner authorization or data"
+    "Yandex account-side verification and legal/commercial facts require owner authorization or confirmed data"
   ],
   "next": [
-    "Audit remaining PR #1 changed files for stale comments, broken links and regressions",
+    "Audit PR #1 documentation and index.html for stale links/comments and accessibility/mobile regressions not covered by tests",
     "Re-run production health probe when an independent network path is available",
-    "Keep PR draft until owner-side Metrica verification and final release review are complete"
+    "Keep PR draft until owner-side analytics/Webmaster verification and final release review are complete"
   ],
   "links": [
     "https://github.com/ZaKaTuJIa/routemsk/pull/1",
