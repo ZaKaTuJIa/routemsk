@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "agent": "ROUTEMSK Night Shift",
+  "project": "ROUTEMSK",
+  "state": "idle",
+  "current_task": null,
+  "started_at": null,
+  "heartbeat_at": null,
+  "finished_at": null,
+  "last_result": "no_change"
+}
