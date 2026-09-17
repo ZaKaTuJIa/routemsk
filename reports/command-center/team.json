@@ -1,7 +1,7 @@
 {
-  "schema_version": 1,
-  "updated_at": "2026-09-17T13:20:00+03:00",
-  "project": "ROUTEMSK",
+  "schema_version": 2,
+  "updated_at": "2026-09-17T16:30:00+03:00",
+  "scope": "IVAN COMMAND CENTER",
   "status_semantics": {
     "working": "A real automation or active work session has reported recent activity.",
     "idle": "Role exists but no active task is running.",
@@ -14,7 +14,8 @@
       "name": "Commander",
       "role": "Orchestrator / Lead",
       "status": "idle",
-      "current_task": "Coordinates ROUTEMSK work and delegates tasks.",
+      "project": "ALL",
+      "current_task": "Coordinates projects, delegates work and collects agent results.",
       "launcher": "https://chatgpt.com/"
     },
     {
@@ -22,7 +23,8 @@
       "name": "ROUTEMSK Night Shift",
       "role": "Autonomous operator",
       "status": "from_report",
-      "current_task": "Read status from reports/routemsk/latest.json.",
+      "project": "ROUTEMSK",
+      "current_task": "Read live status from ROUTEMSK runtime feed.",
       "report": "../routemsk/latest.json"
     },
     {
@@ -30,13 +32,23 @@
       "name": "Dev / Tech",
       "role": "Development and infrastructure",
       "status": "idle",
+      "project": "ROUTEMSK",
       "current_task": "No independent background run is active."
+    },
+    {
+      "id": "dev-unity",
+      "name": "DEV / UNITY",
+      "role": "Unity gameplay prototype developer",
+      "status": "blocked",
+      "project": "КОЩЕЙ",
+      "current_task": "KOSHCHEY Prototype v0.1 is specced and backlog is ready. Waiting for the actual Unity 6.3 LTS project to be synchronized to GitHub before scene/code work can start."
     },
     {
       "id": "seo-content",
       "name": "SEO / Content",
       "role": "Search structure and content",
       "status": "idle",
+      "project": "ROUTEMSK",
       "current_task": "No independent background run is active."
     },
     {
@@ -44,6 +56,7 @@
       "name": "UX / CRO",
       "role": "Conversion and user journey",
       "status": "idle",
+      "project": "ROUTEMSK",
       "current_task": "No independent background run is active."
     },
     {
@@ -51,6 +64,7 @@
       "name": "QA / Audit",
       "role": "Checks and regressions",
       "status": "idle",
+      "project": "ALL",
       "current_task": "No independent background run is active."
     },
     {
@@ -58,6 +72,7 @@
       "name": "Gemini",
       "role": "External research / SEO adviser",
       "status": "manual",
+      "project": "ALL",
       "current_task": "Opens on demand; not running in background.",
       "launcher": "https://gemini.google.com/"
     },
@@ -66,6 +81,7 @@
       "name": "Claude",
       "role": "External UX / CRO adviser",
       "status": "manual",
+      "project": "ALL",
       "current_task": "Opens on demand; not running in background.",
       "launcher": "https://claude.ai/"
     }
