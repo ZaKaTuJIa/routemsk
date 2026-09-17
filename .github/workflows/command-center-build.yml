@@ -34,6 +34,24 @@ jobs:
       - name: Upload unsigned APK
         uses: actions/upload-artifact@v4
         with:
-          name: ivan-command-center-v0.3-unsigned
+          name: ivan-command-center-v0.3.1-unsigned
           path: command-center-app/app/build/outputs/apk/release/app-release-unsigned.apk
+          if-no-files-found: error
+
+      - name: Export Android signing tools
+        shell: bash
+        run: |
+          BT_DIR="$(dirname "$(find "$ANDROID_HOME/build-tools" -type f -name apksigner | sort -V | tail -1)")"
+          test -x "$BT_DIR/apksigner"
+          test -x "$BT_DIR/zipalign"
+          mkdir -p command-center-signing-tools
+          cp "$BT_DIR/apksigner" command-center-signing-tools/
+          cp "$BT_DIR/zipalign" command-center-signing-tools/
+          cp -R "$BT_DIR/lib" command-center-signing-tools/
+
+      - name: Upload Android signing tools
+        uses: actions/upload-artifact@v4
+        with:
+          name: command-center-android-signing-tools
+          path: command-center-signing-tools
           if-no-files-found: error
