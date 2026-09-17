@@ -1,0 +1,39 @@
+name: Build IVAN Command Center
+
+on:
+  push:
+    branches: [command-center-app]
+    paths:
+      - 'command-center-app/**'
+      - '.github/workflows/command-center-build.yml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+
+      - name: Build unsigned release APK
+        run: gradle -p command-center-app :app:assembleRelease --stacktrace
+
+      - name: Upload unsigned APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: ivan-command-center-v0.3-unsigned
+          path: command-center-app/app/build/outputs/apk/release/app-release-unsigned.apk
+          if-no-files-found: error
