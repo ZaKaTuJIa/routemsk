@@ -2,34 +2,34 @@
   "schema_version": 1,
   "project": "ROUTEMSK",
   "agent": "ROUTEMSK Night Shift",
-  "run_at": "2026-09-17T22:58:00+03:00",
+  "run_at": "2026-09-18T00:11:00+03:00",
   "status": "progress",
-  "summary": "Reviewed PR #1 audit documentation and identified stale production-state wording: historical HTTPS recovery is still presented as current in AUDIT_v0.8.md, while the fresh production probe remains inconclusive.",
+  "summary": "Corrected stale HTTPS wording in PR #1 audit documentation so historical recovery is no longer presented as a fresh production health check; production probe remains inconclusive.",
   "completed": [
     "Confirmed PR #1 remains open, draft, mergeable and not merged",
-    "Audited AUDIT_v0.8.md for stale or contradictory release-state claims",
-    "Identified that historical HTTPS recovery is still phrased as a current resolved state despite fresh production verification being unavailable",
-    "Verified production health probe remains inconclusive and did not infer an outage"
+    "Audited and corrected stale HTTPS release-state wording in AUDIT_v0.8.md",
+    "Preserved historical owner-confirmed HTTPS facts while explicitly requiring a fresh HTTPS/HTTP/www health check before release",
+    "Attempted fresh production health verification without inferring an outage from inconclusive access"
   ],
   "changed": [
+    "AUDIT_v0.8.md on codex/v0.8-seo-foundation",
     "reports/routemsk/latest.json on command-center-reports"
   ],
   "checks": [
-    {"name":"PR #1 state","result":"pass","details":"Open, draft, mergeable, not merged; base is main."},
-    {"name":"Audit documentation freshness","result":"fail","details":"AUDIT_v0.8.md says HTTPS is resolved/no longer a blocker based on historical owner confirmation; this should be qualified as historical until a fresh probe succeeds."},
-    {"name":"Production HTTPS/redirect probe","result":"unknown","details":"Direct HTTPS/HTTP access was unavailable from the current web probe; no outage is inferred."},
-    {"name":"Command Center start sync","result":"fail","details":"Start runtime write was blocked by connector safety checks; useful ROUTEMSK work continued."}
+    {"name":"PR #1 state","result":"pass","details":"Open, draft, mergeable, not merged; base remains main."},
+    {"name":"Audit documentation freshness","result":"pass","details":"Historical HTTPS recovery is now explicitly separated from a current production health check."},
+    {"name":"Production HTTPS/redirect probe","result":"unknown","details":"Current web probe could not independently verify HTTPS/HTTP redirects; no outage inferred."},
+    {"name":"Command Center start sync","result":"pass","details":"runtime.json was updated to working on command-center-reports at run start."}
   ],
   "blockers": [
-    "COMMAND_CENTER_SYNC start-status write blocked by connector safety checks",
     "Fresh production HTTP/HTTPS verification unavailable from the current probe environment",
     "Yandex account-side verification and legal/commercial facts require owner authorization or confirmed data",
     "Real Android/iPhone smoke-check requires access to physical devices"
   ],
   "next": [
-    "Qualify stale HTTPS wording in AUDIT_v0.8.md so historical recovery is not presented as a fresh health check",
-    "Continue documentation and broken-reference audit across MVP_SETUP.md and ROADMAP.md",
-    "Re-run production health probe when an independent network path is available"
+    "Audit MVP_SETUP.md and ROADMAP.md for stale claims, broken references and duplicated release gates",
+    "Re-run production HTTPS/HTTP/www health probe when an independent network path is available",
+    "Keep PR #1 draft until owner-only legal/commercial and Yandex/mobile gates are satisfied"
   ],
   "links": [
     "https://github.com/ZaKaTuJIa/routemsk/pull/1",
