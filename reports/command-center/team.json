@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-17T13:20:00+03:00",
+  "project": "ROUTEMSK",
+  "status_semantics": {
+    "working": "A real automation or active work session has reported recent activity.",
+    "idle": "Role exists but no active task is running.",
+    "blocked": "A real blocker prevents the current task.",
+    "manual": "External assistant is available only when opened by the user; it is not running in background."
+  },
+  "members": [
+    {
+      "id": "commander",
+      "name": "Commander",
+      "role": "Orchestrator / Lead",
+      "status": "idle",
+      "current_task": "Coordinates ROUTEMSK work and delegates tasks.",
+      "launcher": "https://chatgpt.com/"
+    },
+    {
+      "id": "routemsk-night-shift",
+      "name": "ROUTEMSK Night Shift",
+      "role": "Autonomous operator",
+      "status": "from_report",
+      "current_task": "Read status from reports/routemsk/latest.json.",
+      "report": "../routemsk/latest.json"
+    },
+    {
+      "id": "dev-tech",
+      "name": "Dev / Tech",
+      "role": "Development and infrastructure",
+      "status": "idle",
+      "current_task": "No independent background run is active."
+    },
+    {
+      "id": "seo-content",
+      "name": "SEO / Content",
+      "role": "Search structure and content",
+      "status": "idle",
+      "current_task": "No independent background run is active."
+    },
+    {
+      "id": "ux-cro",
+      "name": "UX / CRO",
+      "role": "Conversion and user journey",
+      "status": "idle",
+      "current_task": "No independent background run is active."
+    },
+    {
+      "id": "qa-audit",
+      "name": "QA / Audit",
+      "role": "Checks and regressions",
+      "status": "idle",
+      "current_task": "No independent background run is active."
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "role": "External research / SEO adviser",
+      "status": "manual",
+      "current_task": "Opens on demand; not running in background.",
+      "launcher": "https://gemini.google.com/"
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "role": "External UX / CRO adviser",
+      "status": "manual",
+      "current_task": "Opens on demand; not running in background.",
+      "launcher": "https://claude.ai/"
+    }
+  ]
+}
