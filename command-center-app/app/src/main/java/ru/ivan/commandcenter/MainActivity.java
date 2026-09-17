@@ -26,11 +26,20 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends Activity {
     private static final String TEAM_URL = "https://raw.githubusercontent.com/ZaKaTuJIa/routemsk/command-center-reports/reports/command-center/team.json";
     private static final String REPORT_URL = "https://raw.githubusercontent.com/ZaKaTuJIa/routemsk/command-center-reports/reports/routemsk/latest.json";
     private static final String RUNTIME_URL = "https://raw.githubusercontent.com/ZaKaTuJIa/routemsk/command-center-reports/reports/routemsk/runtime.json";
+
+    private static final String THREADS_URL = "https://www.threads.com/@ivan_yageluk";
+    private static final String TELEGRAM_URL = "https://t.me/ZaKaTuJIa";
+    private static final String YOUTUBE_URL = "https://youtube.com/channel/UCl9Toum04L9hoCIyhUrvMGg";
+    private static final String KOSCHEI_PLAN_URL = "https://github.com/ZaKaTuJIa/project-arena/blob/feature/koschei-prototype-v0.1/koschei/PROTOTYPE_v0.1.md";
+    private static final String KOSCHEI_BACKLOG_URL = "https://github.com/ZaKaTuJIa/project-arena/issues";
 
     private static final int BG = Color.rgb(4, 10, 15);
     private static final int CARD = Color.rgb(12, 23, 31);
@@ -121,16 +130,13 @@ public class MainActivity extends Activity {
         commander.setGravity(Gravity.CENTER);
         commander.setPadding(dp(16), dp(16), dp(16), dp(16));
         commander.setBackground(oval(GREEN, CARD, 2));
-        commander.setClickable(true);
-        commander.setFocusable(true);
-        commander.setForeground(ripple());
-        commander.setOnClickListener(v -> showCommanderDialog());
         TextView c = text("COMMANDER", 20, TEXT, true);
         c.setGravity(Gravity.CENTER);
         commander.addView(c);
         TextView ct = text("КООРДИНИРУЕТ", 11, GREEN, true);
         ct.setGravity(Gravity.CENTER);
         commander.addView(ct);
+        makeInteractive(commander, v -> showCommanderDialog());
         commanderWrap.addView(commander, new LinearLayout.LayoutParams(dp(170), dp(170)));
         content.addView(commanderWrap);
 
@@ -138,42 +144,42 @@ public class MainActivity extends Activity {
         LinearLayout projects = new LinearLayout(this);
         projects.setOrientation(LinearLayout.HORIZONTAL);
         projects.addView(projectMini("ROUTEMSK", "В РАБОТЕ", "78%", GREEN), weightCard());
-        projects.addView(projectMini("БЛОГ", "ПЛАН", "34%", CYAN), weightCard());
-        projects.addView(projectMini("КОЩЕЙ", "ПАУЗА", "18%", PURPLE), weightCard());
+        projects.addView(projectMini("БЛОГ", "СОЦСЕТИ", "34%", CYAN), weightCard());
+        projects.addView(projectMini("КОЩЕЙ", "PLANNING", "22%", PURPLE), weightCard());
         content.addView(projects);
 
         sectionTitle("ТРЕБУЕТ РЕШЕНИЯ", AMBER);
         LinearLayout decision = card(AMBER);
-        decision.addView(text("ROUTEMSK", 11, AMBER, true));
-        decision.addView(text("Проверить ночной отчёт и следующий ход", 16, TEXT, true));
-        decision.addView(text("Нажми, чтобы открыть отчёты →", 12, MUTED, false));
-        makeInteractive(decision, v -> showReports());
+        decision.addView(text("КОЩЕЙ", 11, AMBER, true));
+        decision.addView(text("Unity-проект ещё не синхронизирован в GitHub", 16, TEXT, true));
+        decision.addView(text("ТЗ и backlog готовы. Нажми, чтобы открыть проект →", 12, MUTED, false));
+        makeInteractive(decision, v -> showProjectDetail("КОЩЕЙ"));
         content.addView(decision);
 
         sectionTitle("ЖИВАЯ КОМАНДА", MUTED);
         Button refresh = actionButton("↻ Обновить статус команды");
-        refresh.setOnClickListener(v -> loadRuntimeThenTeam());
+        refresh.setOnClickListener(v -> loadRuntimeThenTeam(true));
         content.addView(refresh);
-        loadRuntimeThenTeam();
+        loadRuntimeThenTeam(false);
     }
 
     private void showProjects() {
         currentPage = "projects";
         shell("Проекты");
         content.addView(projectCard("ROUTEMSK", "Сайт пропусков", "Отчёты и статус агента подключены", GREEN));
-        content.addView(projectCard("БЛОГ", "Контент / соцсети", "Пока без фонового агента", CYAN));
-        content.addView(projectCard("КОЩЕЙ", "Игра / Unity", "Пока без фонового агента", PURPLE));
+        content.addView(projectCard("БЛОГ", "Контент / соцсети", "Threads, Telegram и YouTube подключены", CYAN));
+        content.addView(projectCard("КОЩЕЙ", "Игра / Unity", "Prototype v0.1: ТЗ и backlog готовы", PURPLE));
     }
 
     private void showProjectDetail(String name) {
-        currentPage = "project_" + name.toLowerCase();
+        currentPage = "project_" + name.toLowerCase(Locale.ROOT);
         shell(name);
 
         if ("ROUTEMSK".equals(name)) {
             LinearLayout c = card(GREEN);
             c.addView(text("ROUTEMSK", 22, TEXT, true));
             c.addView(text("Сайт пропусков", 13, GREEN, true));
-            c.addView(text("Подключены ночные отчёты, статус автономного агента и GitHub feed.", 13, MUTED, false));
+            c.addView(text("Подключены ночные отчёты, live-статус автономного агента и GitHub feed.", 13, MUTED, false));
             content.addView(c);
 
             Button site = actionButton("Открыть routemsk.ru →");
@@ -191,18 +197,37 @@ public class MainActivity extends Activity {
             LinearLayout c = card(CYAN);
             c.addView(text("БЛОГ", 22, TEXT, true));
             c.addView(text("Контент / соцсети", 13, CYAN, true));
-            c.addView(text("Фоновый агент ещё не подключён. Проект сохранён в штабе и готов к автоматизации.", 13, MUTED, false));
+            c.addView(text("Быстрые переходы в рабочие соцсети. TikTok пока не подключён.", 13, MUTED, false));
             content.addView(c);
+
+            content.addView(linkCard("Threads", "@ivan_yageluk", THREADS_URL, CYAN));
+            content.addView(linkCard("Telegram", "@ZaKaTuJIa", TELEGRAM_URL, GREEN));
+            content.addView(linkCard("YouTube", "Канал IVAN", YOUTUBE_URL, RED));
+
+            Button tiktok = secondaryButton("TikTok — не подключён", MUTED);
+            tiktok.setEnabled(false);
+            content.addView(tiktok);
+
             Button team = secondaryButton("Открыть команду →", CYAN);
             team.setOnClickListener(v -> showAgents());
             content.addView(team);
         } else {
             LinearLayout c = card(PURPLE);
-            c.addView(text("КОЩЕЙ", 22, TEXT, true));
-            c.addView(text("Игра / Unity", 13, PURPLE, true));
-            c.addView(text("Проект на паузе. Фоновый агент пока не подключён.", 13, MUTED, false));
+            c.addView(text("КОЩЕЙ // PROTOTYPE v0.1", 20, TEXT, true));
+            c.addView(text("PLANNING", 13, PURPLE, true));
+            c.addView(text("Combat sandbox: joystick, бесконечные мобы, 4 автокаст-способности, XP, 30 уровней и боссы.", 13, TEXT, false));
+            c.addView(text("Блокер: в GitHub пока нет самого Unity 6.3 LTS проекта с Assets/Packages/ProjectSettings.", 12, AMBER, false));
             content.addView(c);
-            Button team = secondaryButton("Открыть команду →", PURPLE);
+
+            Button plan = actionButton("Открыть ТЗ Prototype v0.1 →");
+            plan.setOnClickListener(v -> openUrl(KOSCHEI_PLAN_URL));
+            content.addView(plan);
+
+            Button backlog = secondaryButton("Открыть backlog задач →", PURPLE);
+            backlog.setOnClickListener(v -> openUrl(KOSCHEI_BACKLOG_URL));
+            content.addView(backlog);
+
+            Button team = secondaryButton("Показать DEV / UNITY →", CYAN);
             team.setOnClickListener(v -> showAgents());
             content.addView(team);
         }
@@ -212,14 +237,14 @@ public class MainActivity extends Activity {
         currentPage = "agents";
         shell("Команда");
 
-        TextView explain = text("WORKING — есть реальная активность. IDLE — роль ждёт задачу. BLOCKED — есть настоящий блокер. MANUAL — внешний помощник запускается по твоей команде.", 13, MUTED, false);
+        TextView explain = text("WORKING — есть свежая реальная активность. IDLE — роль ждёт задачу. BLOCKED — есть настоящий блокер. MANUAL — внешний помощник запускается по команде.", 13, MUTED, false);
         explain.setPadding(0, 0, 0, dp(10));
         content.addView(explain);
 
         Button refresh = actionButton("↻ Обновить команду");
-        refresh.setOnClickListener(v -> loadRuntimeThenTeam());
+        refresh.setOnClickListener(v -> loadRuntimeThenTeam(true));
         content.addView(refresh);
-        loadRuntimeThenTeam();
+        loadRuntimeThenTeam(false);
 
         sectionTitle("AI HUB", MUTED);
         content.addView(chatGptCard());
@@ -231,28 +256,42 @@ public class MainActivity extends Activity {
         currentPage = "reports";
         shell("Ночные отчёты");
 
-        TextView explain = text("ROUTEMSK Night Shift: только факты — что реально сделано, что изменено, какие проверки прошли и что заблокировано.", 13, MUTED, false);
+        TextView explain = text("ROUTEMSK Night Shift: только факты — что реально сделано, изменено, проверено и заблокировано.", 13, MUTED, false);
         explain.setPadding(0, 0, 0, dp(10));
         content.addView(explain);
 
         Button refresh = actionButton("↻ Обновить отчёт");
-        refresh.setOnClickListener(v -> loadReport());
+        refresh.setOnClickListener(v -> loadReport(true));
         content.addView(refresh);
-        loadReport();
+        loadReport(false);
     }
 
-    private void loadRuntimeThenTeam() {
+    private void loadRuntimeThenTeam(boolean notify) {
         final String pageAtRequest = currentPage;
         String cachedRuntime = prefs.getString("runtime", "");
         String cachedTeam = prefs.getString("team", "");
+
         if (!cachedRuntime.isEmpty()) parseRuntime(cachedRuntime);
         if (!cachedTeam.isEmpty() && currentPage.equals(pageAtRequest)) renderTeam(cachedTeam);
+        if (notify) toast("Обновляю команду…");
 
-        fetch(RUNTIME_URL, "runtime", json -> {
+        fetch(RUNTIME_URL, "runtime", runtimeJson -> {
             if (!currentPage.equals(pageAtRequest)) return;
-            parseRuntime(json);
+            parseRuntime(runtimeJson);
             fetch(TEAM_URL, "team", teamJson -> {
-                if (currentPage.equals(pageAtRequest)) renderTeam(teamJson);
+                if (!currentPage.equals(pageAtRequest)) return;
+                renderTeam(teamJson);
+                if (notify) toast("Команда обновлена • " + nowTime());
+            }, error -> {
+                if (notify) toast("Team feed недоступен — показан последний кэш");
+            });
+        }, error -> {
+            fetch(TEAM_URL, "team", teamJson -> {
+                if (!currentPage.equals(pageAtRequest)) return;
+                renderTeam(teamJson);
+                if (notify) toast("Команда обновлена, runtime недоступен • " + nowTime());
+            }, teamError -> {
+                if (notify) toast("Сеть недоступна — показан последний кэш");
             });
         });
     }
@@ -260,9 +299,10 @@ public class MainActivity extends Activity {
     private void parseRuntime(String json) {
         try {
             JSONObject o = new JSONObject(json);
-            runtimeState = o.optString("state", "idle");
-            runtimeTask = o.optString("current_task", "");
-            runtimeHeartbeat = o.optString("heartbeat_at", "");
+            runtimeState = cleanNullable(o.optString("state", "idle"));
+            if (runtimeState.isEmpty()) runtimeState = "idle";
+            runtimeTask = cleanNullable(o.optString("current_task", ""));
+            runtimeHeartbeat = cleanNullable(o.optString("heartbeat_at", ""));
         } catch (Exception ignored) {}
     }
 
@@ -278,6 +318,7 @@ public class MainActivity extends Activity {
                 String id = m.optString("id");
                 String status = m.optString("status", "idle");
                 String task = m.optString("current_task", "");
+                String project = m.optString("project", "");
                 String heartbeat = "";
 
                 if ("routemsk-night-shift".equals(id)) {
@@ -286,12 +327,12 @@ public class MainActivity extends Activity {
                     heartbeat = runtimeHeartbeat;
                 }
 
-                LinearLayout cc = memberCard(m.optString("name"), m.optString("role"), status, task, heartbeat);
+                LinearLayout cc = memberCard(m.optString("name"), m.optString("role"), project, status, task, heartbeat);
                 cc.setTag("team_dynamic");
                 content.addView(cc);
             }
         } catch (Exception e) {
-            Toast.makeText(this, "Team feed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            toast("Team feed: " + e.getMessage());
         }
     }
 
@@ -303,7 +344,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    private LinearLayout memberCard(String name, String role, String status, String task, String heartbeat) {
+    private LinearLayout memberCard(String name, String role, String project, String status, String task, String heartbeat) {
         LinearLayout cc = card(statusColor(status));
         LinearLayout row = new LinearLayout(this);
         row.setOrientation(LinearLayout.HORIZONTAL);
@@ -314,25 +355,33 @@ public class MainActivity extends Activity {
         row.addView(text(statusLabel(status), 11, statusColor(status), true));
         cc.addView(row);
         cc.addView(text(role, 12, MUTED, false));
-        if (task != null && !task.isEmpty()) cc.addView(text(task, 13, TEXT, false));
-        if (heartbeat != null && !heartbeat.isEmpty()) cc.addView(text("heartbeat: " + heartbeat, 10, MUTED, false));
+        if (!cleanNullable(project).isEmpty()) cc.addView(text("Проект: " + project, 11, CYAN, false));
+        if (!cleanNullable(task).isEmpty()) cc.addView(text(task, 13, TEXT, false));
+        if (!cleanNullable(heartbeat).isEmpty()) cc.addView(text("heartbeat: " + heartbeat, 10, MUTED, false));
         cc.addView(text("Нажми для деталей →", 10, statusColor(status), false));
 
         final String fName = name;
         final String fRole = role;
+        final String fProject = project;
         final String fStatus = status;
         final String fTask = task;
         final String fHeartbeat = heartbeat;
-        makeInteractive(cc, v -> showAgentDialog(fName, fRole, fStatus, fTask, fHeartbeat));
+        makeInteractive(cc, v -> showAgentDialog(fName, fRole, fProject, fStatus, fTask, fHeartbeat));
         return cc;
     }
 
-    private void loadReport() {
+    private void loadReport(boolean notify) {
         final String pageAtRequest = currentPage;
         String cached = prefs.getString("report", "");
         if (!cached.isEmpty() && currentPage.equals(pageAtRequest)) renderReport(cached);
+        if (notify) toast("Обновляю ночной отчёт…");
+
         fetch(REPORT_URL, "report", json -> {
-            if (currentPage.equals(pageAtRequest)) renderReport(json);
+            if (!currentPage.equals(pageAtRequest)) return;
+            renderReport(json);
+            if (notify) toast("Отчёт обновлён • " + nowTime());
+        }, error -> {
+            if (notify) toast("Сеть недоступна — показан последний кэш");
         });
     }
 
@@ -341,12 +390,32 @@ public class MainActivity extends Activity {
             JSONObject o = new JSONObject(json);
             removeDynamicReportCards();
 
-            LinearLayout hero = card(reportColor(o.optString("status", "no_change")));
+            String runAt = cleanNullable(o.optString("run_at", ""));
+            String summary = cleanNullable(o.optString("summary", ""));
+            String status = cleanNullable(o.optString("status", "no_change"));
+            boolean initializedOnly = runAt.isEmpty() || summary.toLowerCase(Locale.ROOT).contains("report channel initialized");
+
+            if (initializedOnly) {
+                LinearLayout empty = card(GRAY);
+                empty.setTag("report_dynamic");
+                empty.addView(text("ROUTEMSK // NIGHT SHIFT", 17, TEXT, true));
+                empty.addView(text("Ночных отчётов пока нет.", 15, TEXT, true));
+                empty.addView(text("Агент ещё не завершил первый синхронизированный запуск. Канал отчётов подключён и готов принимать данные.", 13, MUTED, false));
+                content.addView(empty);
+                addEmptyReportCard("Сделано");
+                addEmptyReportCard("Изменено");
+                addEmptyReportCard("Проверки");
+                addEmptyReportCard("Блокеры");
+                addEmptyReportCard("Следующий ход");
+                return;
+            }
+
+            LinearLayout hero = card(reportColor(status));
             hero.setTag("report_dynamic");
             hero.addView(text("ROUTEMSK // NIGHT SHIFT", 17, TEXT, true));
-            hero.addView(text(o.optString("summary", "Нет сводки"), 14, TEXT, false));
-            hero.addView(text("Последний запуск: " + o.optString("run_at", "—"), 11, MUTED, false));
-            hero.addView(text("Нажми для полной сводки →", 10, reportColor(o.optString("status", "no_change")), false));
+            hero.addView(text(summary.isEmpty() ? "Нет сводки" : summary, 14, TEXT, false));
+            hero.addView(text("Последний запуск: " + runAt, 11, MUTED, false));
+            hero.addView(text("Нажми для полной сводки →", 10, reportColor(status), false));
             makeInteractive(hero, v -> showReportSummaryDialog(o));
             content.addView(hero);
 
@@ -358,12 +427,12 @@ public class MainActivity extends Activity {
             checkCard.setTag("report_dynamic");
             checkCard.addView(text("Проверки", 16, CYAN, true));
             if (checks == null || checks.length() == 0) {
-                checkCard.addView(text("—", 13, MUTED, false));
+                checkCard.addView(text("Пока нет данных.", 13, MUTED, false));
             } else {
                 for (int i = 0; i < checks.length(); i++) {
-                    JSONObject c = checks.getJSONObject(i);
-                    String r = c.optString("result", "unknown");
-                    checkCard.addView(text(checkIcon(r) + " " + c.optString("name") + " — " + c.optString("details"), 13, checkColor(r), false));
+                    JSONObject check = checks.getJSONObject(i);
+                    String result = check.optString("result", "unknown");
+                    checkCard.addView(text(checkIcon(result) + " " + check.optString("name") + " — " + check.optString("details"), 13, checkColor(result), false));
                 }
             }
             final JSONArray fChecks = checks;
@@ -373,7 +442,7 @@ public class MainActivity extends Activity {
             addArrayCard("Блокеры", o.optJSONArray("blockers"));
             addArrayCard("Следующий ход", o.optJSONArray("next"));
         } catch (Exception e) {
-            Toast.makeText(this, "Report feed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            toast("Report feed: " + e.getMessage());
         }
     }
 
@@ -385,11 +454,19 @@ public class MainActivity extends Activity {
         }
     }
 
+    private void addEmptyReportCard(String title) {
+        LinearLayout c = card(CYAN);
+        c.setTag("report_dynamic");
+        c.addView(text(title, 16, CYAN, true));
+        c.addView(text("Пока нет данных.", 13, MUTED, false));
+        content.addView(c);
+    }
+
     private void addArrayCard(String title, JSONArray arr) {
         LinearLayout c = card(CYAN);
         c.setTag("report_dynamic");
         c.addView(text(title, 16, CYAN, true));
-        if (arr == null || arr.length() == 0) c.addView(text("—", 13, MUTED, false));
+        if (arr == null || arr.length() == 0) c.addView(text("Пока нет данных.", 13, MUTED, false));
         else for (int i = 0; i < arr.length(); i++) c.addView(text("• " + arr.optString(i), 13, TEXT, false));
         c.addView(text("Нажми для просмотра →", 10, CYAN, false));
         makeInteractive(c, v -> showJsonArrayDialog(title, arr));
@@ -450,21 +527,26 @@ public class MainActivity extends Activity {
         return c;
     }
 
-    private void fetch(String url, String cacheKey, Result result) {
+    private void fetch(String url, String cacheKey, Result result, Fail fail) {
         new Thread(() -> {
             HttpURLConnection connection = null;
             try {
-                connection = (HttpURLConnection) new URL(url).openConnection();
+                String separator = url.contains("?") ? "&" : "?";
+                URL requestUrl = new URL(url + separator + "t=" + System.currentTimeMillis());
+                connection = (HttpURLConnection) requestUrl.openConnection();
                 connection.setConnectTimeout(8000);
                 connection.setReadTimeout(8000);
+                connection.setUseCaches(false);
                 connection.setRequestProperty("Accept", "application/json");
+                connection.setRequestProperty("Cache-Control", "no-cache, no-store");
+                connection.setRequestProperty("Pragma", "no-cache");
                 int code = connection.getResponseCode();
                 if (code < 200 || code >= 300) throw new Exception("HTTP " + code);
                 String body = readAll(connection.getInputStream());
                 prefs.edit().putString(cacheKey, body).apply();
                 runOnUiThread(() -> result.ok(body));
             } catch (Exception e) {
-                runOnUiThread(() -> Toast.makeText(this, "Сеть недоступна — оставил последний кэш", Toast.LENGTH_SHORT).show());
+                runOnUiThread(() -> fail.error(e.getMessage() == null ? "network" : e.getMessage()));
             } finally {
                 if (connection != null) connection.disconnect();
             }
@@ -488,12 +570,11 @@ public class MainActivity extends Activity {
                 startActivity(launch);
                 return;
             }
-
             Intent direct = new Intent(Intent.ACTION_VIEW, Uri.parse("https://chatgpt.com/"));
             direct.setPackage("com.openai.chatgpt");
             startActivity(direct);
         } catch (Exception e) {
-            Toast.makeText(this, "Приложение ChatGPT не найдено — открываю веб-версию", Toast.LENGTH_SHORT).show();
+            toast("Приложение ChatGPT не найдено — открываю веб-версию");
             openUrl("https://chatgpt.com/");
         }
     }
@@ -502,33 +583,37 @@ public class MainActivity extends Activity {
         try {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
         } catch (Exception e) {
-            Toast.makeText(this, "Не удалось открыть ссылку", Toast.LENGTH_SHORT).show();
+            toast("Не удалось открыть ссылку");
         }
     }
 
     private void showCommanderDialog() {
-        showDialog("COMMANDER", "Главный управляющий агент. Принимает цель, разбивает её на задачи, назначает исполнителей, собирает результаты и поднимает тебе только решения, где реально нужен человек.");
+        showDialog("COMMANDER", "Главный управляющий агент. Координирует проекты, разбивает цели на задачи, собирает результаты и поднимает только реальные решения и блокеры.");
     }
 
-    private void showAgentDialog(String name, String role, String status, String task, String heartbeat) {
+    private void showAgentDialog(String name, String role, String project, String status, String task, String heartbeat) {
         StringBuilder b = new StringBuilder();
-        b.append(role).append("\n\nСтатус: ").append(statusLabel(status));
-        if (task != null && !task.isEmpty()) b.append("\n\nТекущая задача:\n").append(task);
-        if (heartbeat != null && !heartbeat.isEmpty()) b.append("\n\nHeartbeat:\n").append(heartbeat);
+        b.append(role);
+        if (!cleanNullable(project).isEmpty()) b.append("\nПроект: ").append(project);
+        b.append("\n\nСтатус: ").append(statusLabel(status));
+        if (!cleanNullable(task).isEmpty()) b.append("\n\nТекущая задача:\n").append(task);
+        if (!cleanNullable(heartbeat).isEmpty()) b.append("\n\nHeartbeat:\n").append(heartbeat);
         showDialog(name, b.toString());
     }
 
     private void showReportSummaryDialog(JSONObject o) {
+        String runAt = cleanNullable(o.optString("run_at", ""));
+        String summary = cleanNullable(o.optString("summary", ""));
         StringBuilder b = new StringBuilder();
-        b.append(o.optString("summary", "Нет сводки"));
-        b.append("\n\nПоследний запуск: ").append(o.optString("run_at", "—"));
-        b.append("\nСтатус: ").append(o.optString("status", "no_change"));
+        b.append(summary.isEmpty() ? "Нет сводки" : summary);
+        b.append("\n\nПоследний запуск: ").append(runAt.isEmpty() ? "ещё не было" : runAt);
+        b.append("\nСтатус: ").append(cleanNullable(o.optString("status", "no_change")));
         showDialog("ROUTEMSK // NIGHT SHIFT", b.toString());
     }
 
     private void showJsonArrayDialog(String title, JSONArray arr) {
         if (arr == null || arr.length() == 0) {
-            showDialog(title, "Пока пусто.");
+            showDialog(title, "Пока нет данных.");
             return;
         }
         StringBuilder b = new StringBuilder();
@@ -538,7 +623,7 @@ public class MainActivity extends Activity {
                 JSONObject o = (JSONObject) item;
                 b.append("• ").append(o.optString("name", "Проверка"));
                 String result = o.optString("result", "unknown");
-                if (!result.isEmpty()) b.append(" — ").append(result.toUpperCase());
+                if (!result.isEmpty()) b.append(" — ").append(result.toUpperCase(Locale.ROOT));
                 String details = o.optString("details", "");
                 if (!details.isEmpty()) b.append("\n  ").append(details);
             } else {
@@ -555,9 +640,7 @@ public class MainActivity extends Activity {
                 .setMessage(message)
                 .setPositiveButton("Закрыть", null)
                 .create();
-        dialog.setOnShowListener(d -> {
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(GREEN);
-        });
+        dialog.setOnShowListener(d -> dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(GREEN));
         dialog.show();
     }
 
@@ -703,5 +786,21 @@ public class MainActivity extends Activity {
         return "?";
     }
 
+    private String cleanNullable(String s) {
+        if (s == null) return "";
+        String value = s.trim();
+        if ("null".equalsIgnoreCase(value)) return "";
+        return value;
+    }
+
+    private String nowTime() {
+        return new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
+    }
+
+    private void toast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
     private interface Result { void ok(String body); }
+    private interface Fail { void error(String message); }
 }
