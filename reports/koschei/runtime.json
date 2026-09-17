@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "project": "КОЩЕЙ",
+  "agent": "DEV / UNITY",
+  "state": "blocked",
+  "phase": "PLANNING",
+  "current_task": "KOSHCHEY Prototype v0.1 specification and backlog are ready. Waiting for the actual Unity 6.3 LTS project to be synchronized to GitHub.",
+  "started_at": "2026-09-17T16:20:00+03:00",
+  "heartbeat_at": "2026-09-17T16:30:00+03:00",
+  "blocker": "No Unity project with Assets/Packages/ProjectSettings is available in the connected repositories.",
+  "spec_url": "https://github.com/ZaKaTuJIa/project-arena/blob/feature/koschei-prototype-v0.1/koschei/PROTOTYPE_v0.1.md",
+  "backlog_url": "https://github.com/ZaKaTuJIa/project-arena/issues"
+}
