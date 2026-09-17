@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-09-17T16:30:00+03:00",
+  "updated_at": "2026-09-17T19:41:00+03:00",
   "scope": "IVAN COMMAND CENTER",
   "status_semantics": {
     "working": "A real automation or active work session has reported recent activity.",
@@ -41,7 +41,7 @@
       "role": "Unity gameplay prototype developer",
       "status": "blocked",
       "project": "КОЩЕЙ",
-      "current_task": "KOSHCHEY Prototype v0.1 is specced and backlog is ready. Waiting for the actual Unity 6.3 LTS project to be synchronized to GitHub before scene/code work can start."
+      "current_task": "KOSHCHEY Prototype v0.1 is bootstrapped in GitHub with gameplay code, XP, bosses, joystick and Android build automation. Local Editor compile/APK build is paused until access to the already-activated Unity installation on the home PC tomorrow."
     },
     {
       "id": "seo-content",
