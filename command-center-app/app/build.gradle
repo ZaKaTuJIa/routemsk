@@ -1,0 +1,21 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'ru.ivan.commandcenter'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'ru.ivan.commandcenter'
+        minSdk 24
+        targetSdk 35
+        versionCode 4
+        versionName '0.3.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
