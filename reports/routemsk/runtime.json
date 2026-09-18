@@ -3,9 +3,9 @@
   "agent": "ROUTEMSK Night Shift",
   "project": "ROUTEMSK",
   "state": "idle",
-  "current_task": "Next: safely fix BUG-AN-001 without full-file replacement",
-  "started_at": "2026-09-18T08:25:00+03:00",
-  "heartbeat_at": "2026-09-18T08:52:00+03:00",
-  "finished_at": "2026-09-18T08:52:00+03:00",
+  "current_task": "Next: fix BUG-AN-001 implementation and regression test together with a safe targeted edit",
+  "started_at": "2026-09-18T14:00:00+03:00",
+  "heartbeat_at": "2026-09-18T14:07:00+03:00",
+  "finished_at": "2026-09-18T14:07:00+03:00",
   "last_result": "progress"
 }
