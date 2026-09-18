@@ -2,10 +2,10 @@
   "schema_version": 1,
   "agent": "ROUTEMSK Night Shift",
   "project": "ROUTEMSK",
-  "state": "idle",
-  "current_task": "Next: audit remaining repository references and PR diff for safe regressions",
-  "started_at": "2026-09-18T08:10:00+03:00",
-  "heartbeat_at": "2026-09-18T08:19:00+03:00",
-  "finished_at": "2026-09-18T08:19:00+03:00",
+  "state": "working",
+  "current_task": "Verify production health, review PR #1, then audit repository references and regressions",
+  "started_at": "2026-09-18T08:25:00+03:00",
+  "heartbeat_at": "2026-09-18T08:25:00+03:00",
+  "finished_at": null,
   "last_result": "progress"
 }
