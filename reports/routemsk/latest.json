@@ -2,13 +2,13 @@
   "schema_version": 1,
   "project": "ROUTEMSK",
   "agent": "ROUTEMSK Night Shift",
-  "run_at": "2026-09-18T07:56:00+03:00",
+  "run_at": "2026-09-18T08:00:00+03:00",
   "status": "progress",
-  "summary": "Audited MVP_SETUP.md after retrying production probes; PR #1 remains open/draft and production health remains unknown from this environment. Identified documentation follow-up: release readiness wording should consistently distinguish owner-only gates from agent-verifiable gates.",
-  "completed": ["Confirmed PR #1 remains open, draft and not merged", "Retried HTTPS, HTTP and www production probes without inferring an outage", "Audited MVP_SETUP.md release, Metrica, Webmaster, legal and production-status documentation"],
+  "summary": "Audited AUDIT_v0.8.md and ROADMAP.md. PR #1 remains open/draft and production health is unknown from this environment. Documentation is internally consistent; identified a safe refinement: split Ready-for-review gates into agent-verifiable and owner/device-dependent gates so automation cannot imply it can complete owner-only checks.",
+  "completed": ["Confirmed PR #1 remains open, draft, mergeable and not merged", "Retried HTTPS, HTTP and www production probes without inferring an outage", "Audited AUDIT_v0.8.md and ROADMAP.md for stale or contradictory release gates"],
   "changed": ["reports/routemsk/latest.json on command-center-reports"],
-  "checks": [{"name":"PR #1 state","result":"pass","details":"Open and draft; head c654aa4eba68a66dfbfd018ebb6aef6b4758ecf5."},{"name":"Production HTTPS/redirect probe","result":"unknown","details":"Current web environment could not access HTTPS, HTTP or www endpoints; no outage inferred."},{"name":"MVP_SETUP release documentation","result":"pass","details":"HTTPS/HTTP/www release gate, Metrica limitations, Webmaster dependency, legal placeholders and historical-vs-current production status are explicitly documented."}],
+  "checks": [{"name":"PR #1 state","result":"pass","details":"Open, draft, mergeable, not merged; 12 changed files."},{"name":"Production HTTPS/redirect probe","result":"unknown","details":"Current web environment could not access HTTPS, HTTP or www endpoints; no outage inferred."},{"name":"AUDIT/ROADMAP consistency","result":"pass","details":"HTTPS/HTTP/www checks, Metrica/Webmaster dependencies, legal placeholders and mobile-device requirements are consistent."}],
   "blockers": ["COMMAND_CENTER_SYNC start-status write was blocked by safety checks", "Fresh production HTTP/HTTPS verification unavailable from current probe environment", "Yandex account-side verification and legal/commercial facts require owner authorization or confirmed data", "Real Android/iPhone smoke-check requires physical-device access"],
-  "next": ["Audit AUDIT_v0.8.md and ROADMAP.md for inconsistent release-readiness wording or stale references", "Retry independent production HTTPS/HTTP/www verification", "Keep PR #1 draft until owner-only release gates are satisfied"],
+  "next": ["Refine release-gate wording to separate agent-verifiable checks from owner/device-dependent checks", "Audit remaining repository references and links for stale paths or regressions", "Retry independent production HTTPS/HTTP/www verification"],
   "links": ["https://github.com/ZaKaTuJIa/routemsk/pull/1", "https://routemsk.ru/"]
 }
