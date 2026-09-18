@@ -220,6 +220,26 @@ body{font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);letter-spacing
   .mobile-swipe-hint{display:none}.process-wrap{overflow:visible;padding:0}.route-process{display:grid;grid-template-columns:1fr;gap:0}.route-process::before{display:block;left:26px;right:auto;top:27px;bottom:32px;width:2px;height:auto}
   .route-step{position:relative;min-height:0;padding:0 0 30px 76px}.route-step:last-child{padding-bottom:0}.route-step .num{position:absolute;left:0;top:0;width:54px;height:54px;margin:0;border:7px solid #fff}.route-step h3{padding-top:5px;font-size:18px}.route-step p{font-size:15px}
 }
+/* Redesign C: operations modules, evidence hierarchy, closing conversion. */
+.section-dark{position:relative;overflow:hidden;background:var(--dark)}.section-dark::after{content:"";position:absolute;width:480px;height:480px;right:-250px;top:-260px;border-radius:50%;background:rgba(37,99,235,.16)}.section-dark .container{position:relative;z-index:1}.section-dark .section-head{max-width:720px}
+.support-grid{grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #273750;border-bottom:1px solid #273750}.support-grid article{min-height:182px;padding:28px;border:0;border-right:1px solid #273750;border-radius:0;background:transparent}.support-grid article:last-child{border-right:0}.support-grid h3{font-size:19px}.support-grid h3::before{content:"";display:inline-block;width:9px;height:9px;margin-right:10px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(22,163,74,.1)}.support-grid p{line-height:1.65;color:#b9c6da}
+.fleet{grid-template-columns:1.08fr .92fr;gap:72px}.fleet p{max-width:680px;line-height:1.65}.fleet-note{padding:16px 18px!important;border-left:4px solid var(--blue);border-radius:10px!important;background:var(--soft)}
+.fleet-points{gap:10px}.fleet-stat{padding:20px;border-radius:14px;background:var(--soft)}.route-status{padding:32px;border:0;border-radius:24px;background:var(--ink);box-shadow:0 28px 70px rgba(8,17,31,.18)}
+.route-status .micro{color:#8fa0b9}.route-status .route-item{color:#fff}.route-status .route-item span{background:#1d2a41;color:#aebbd0}.route-status .route-item small{color:#93a4bc}.route-status .route-line{background:#2a3a55}.route-status .route-item.active span{background:var(--blue);box-shadow:0 10px 25px rgba(37,99,235,.32)}
+.docs{grid-template-columns:.78fr 1.22fr;gap:20px}.docbox{padding:30px;border-radius:22px}.docs .docbox:first-child{border-color:#16243b;background:var(--ink-2);color:#fff;box-shadow:0 22px 55px rgba(8,17,31,.13)}.docs .docbox:first-child .main-doc{background:var(--blue);color:#fff}.main-doc{padding:26px;border-radius:16px;font-size:38px;letter-spacing:-1.5px}.tags{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tags span{position:relative;padding:12px 14px 12px 34px;border:1px solid #e2e8f0;background:#f8fafc}.tags span::before{content:"";position:absolute;left:14px;top:17px;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.proof-grid{grid-template-columns:1.15fr .85fr;gap:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}.proof-card{min-height:210px;padding:34px;border:0;border-radius:0;background:#fff;box-shadow:none}.proof-card:first-child{background:#edf3ff}.proof-card+.proof-card{border-left:1px solid var(--line)}.proof-card:hover{transform:none;border-color:transparent}.proof-card h3{max-width:420px;font-size:23px;line-height:1.2}.proof-card p{max-width:520px;line-height:1.65}
+.faq{grid-template-columns:.76fr 1.24fr;gap:72px}.faq-side>div:first-child p{color:var(--muted);line-height:1.6}.contact-card{padding:24px;border-radius:18px;background:var(--soft)}
+.faq-item{padding:0 22px;margin-bottom:12px;border-radius:16px}.faq-item summary{min-height:64px;padding:19px 0;font-size:17px}.faq-item summary::after{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:#eaf1ff;color:var(--blue)}.faq-item[open]{border-color:#a9c1ef;box-shadow:0 10px 28px rgba(15,23,42,.055)}.faq-answer{padding-bottom:20px;line-height:1.65}
+.final{padding:80px 0;background:var(--soft)}.final::after{display:none}.final-inner{align-items:flex-end;padding:52px 56px;border-radius:28px;background:var(--dark);box-shadow:0 30px 80px rgba(8,17,31,.17)}.final-inner>div:first-child{max-width:700px}.final h2{color:#fff}.final p{margin:15px 0 0;color:#b9c6da;font-size:17px}.final-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px}.btn-ghost{border:1px solid #40506b;color:#fff;background:rgba(255,255,255,.04)}.btn-ghost:hover{border-color:#6f83a4;background:rgba(255,255,255,.08)}
+.footer{padding:46px 0;background:#050a13}.footer-grid{grid-template-columns:1.25fr .7fr 1.05fr;gap:48px}.footer strong{display:block;margin-bottom:12px}.footer p,.footer a,.legal-pending{font-size:14px;line-height:1.55}
+@media(max-width:1000px){.fleet{gap:36px}.faq{gap:40px}.footer-grid{gap:28px}}
+@media(max-width:700px){
+  .support-grid{grid-template-columns:1fr}.support-grid article{min-height:0;padding:22px 0;border-right:0;border-bottom:1px solid #273750}.support-grid article:last-child{border-bottom:0}
+  .fleet{gap:28px}.fleet-points{grid-template-columns:1fr 1fr}.route-status{padding:26px 22px}.docs{grid-template-columns:1fr}.docbox{padding:24px 20px}.tags{grid-template-columns:1fr}
+  .proof-grid{grid-template-columns:1fr}.proof-card{min-height:0;padding:26px 22px}.proof-card+.proof-card{border-left:0;border-top:1px solid var(--line)}.faq{gap:28px}.contact-card{padding:20px}
+  .final{padding:56px 0}.final-inner{align-items:flex-start;padding:32px 22px;border-radius:22px}.final-actions{width:100%;justify-content:stretch}.final-actions .btn{width:100%}.footer{padding:40px 0}.footer-grid{gap:30px}
+}
+@media(max-width:420px){.fleet-points{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}.btn:hover,.upload-zone:hover,.route-step:hover,.proof-card:hover{transform:none}}
 </style>
 </head>
@@ -461,7 +481,10 @@ body{font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);letter-spacing
       <h2>Для первичной проверки достаточно одного СТС</h2>
       <p>Без длинной анкеты и регистрации.</p>
     </div>
-    <a class="btn btn-white" href="#check">Выбрать СТС →</a>
+    <div class="final-actions" data-messenger-container>
+      <a class="btn btn-primary" href="#check">Выбрать СТС →</a>
+      <a class="btn btn-ghost" data-messenger-link href="https://t.me/Mary_Romanova_tg" data-goal="telegram_click" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+    </div>
   </div>
 </section>
 </main>
