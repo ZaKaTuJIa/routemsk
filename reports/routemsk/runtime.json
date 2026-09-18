@@ -2,10 +2,10 @@
   "schema_version": 1,
   "agent": "ROUTEMSK Night Shift",
   "project": "ROUTEMSK",
-  "state": "working",
-  "current_task": "Verify production health, review PR #1, then audit repository references and regressions",
+  "state": "idle",
+  "current_task": "Next: safely fix BUG-AN-001 without full-file replacement",
   "started_at": "2026-09-18T08:25:00+03:00",
-  "heartbeat_at": "2026-09-18T08:25:00+03:00",
-  "finished_at": null,
+  "heartbeat_at": "2026-09-18T08:52:00+03:00",
+  "finished_at": "2026-09-18T08:52:00+03:00",
   "last_result": "progress"
 }
