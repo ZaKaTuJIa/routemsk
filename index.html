@@ -202,6 +202,24 @@ body{font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);letter-spacing
   .trust-grid{margin-top:24px;border-radius:16px}.trust-item{min-height:96px;padding:20px 16px;border-bottom:1px solid var(--line)}.trust-item:nth-child(2){border-right:0}.trust-item:nth-last-child(-n+2){border-bottom:0}.trust-item strong{font-size:19px}.trust-item span{font-size:12px}
 }
 @media(max-width:420px){.header-cta{font-size:0;min-width:72px}.header-cta::after{content:"СТС";font-size:13px}.hero h1{font-size:36px}.application-route span{font-size:11px}}
+/* Redesign B: asymmetric pricing and six-stop route timeline. */
+.section{padding:96px 0}.section-gray{background:var(--soft)}.section-head{max-width:820px;margin-bottom:42px}
+.section-head h2,.fleet h2,.final h2{font-size:clamp(38px,3.7vw,48px);line-height:1.04;letter-spacing:-2.2px}.section-head p{max-width:650px;margin-top:15px;font-size:17px;line-height:1.6}
+.price-grid{grid-template-columns:3fr 2fr;gap:18px;align-items:stretch}.card{position:relative;overflow:hidden;padding:32px;border-radius:22px;border-color:#dfe6f0;box-shadow:0 14px 40px rgba(15,23,42,.045)}
+.card.featured{border:1px solid #17243a;background:var(--ink-2);color:#fff;box-shadow:0 24px 60px rgba(8,17,31,.16)}.card.featured::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:var(--blue)}
+.card.featured .tag{background:rgba(37,99,235,.18);color:#aac1ff}.card.featured p{color:#aebbd0}.card.featured li{color:#e6edf8}.card.featured .price{color:#fff}.card.featured .btn{box-shadow:none}
+.tag{padding:7px 11px;border-radius:999px}.card h3{font-size:20px}.price{margin:12px 0 5px;font-size:52px;letter-spacing:-2.8px}.card ul{gap:11px;margin:25px 0}.card li{color:#334155}.card .btn{min-width:220px}
+.fleet-banner{margin-top:14px;padding:18px 22px;border:1px solid #cddcff;border-radius:15px;background:#eaf1ff;color:var(--ink)}.fleet-banner a{color:var(--blue)}
+.process-wrap{overflow:visible;padding:4px 0 0}.route-process{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:0;min-width:0}.route-process::before{display:block;left:7%;right:7%;top:27px;height:2px;background:#cad7ec}
+.route-step{min-height:190px;padding:0 12px;border:0;border-radius:0;background:transparent;box-shadow:none;text-align:left}.route-step:hover{border-color:transparent;transform:none;box-shadow:none}.route-step:hover .num{background:var(--blue);color:#fff}
+.route-step .num{position:relative;width:54px;height:54px;margin:0 0 18px;border:7px solid #fff;border-radius:50%;background:#eaf1ff;color:var(--blue);box-shadow:0 0 0 1px #bfd0ec;font-size:12px}.route-step h3{font-size:17px;margin:0 0 8px}.route-step p{font-size:14px;line-height:1.55}
+@media(max-width:1000px){.route-process{grid-template-columns:repeat(3,1fr);gap:24px 0}.route-process::before{display:none}.route-step{min-height:165px;padding:0 18px 0 0}.route-step .num{border-width:5px}}
+@media(max-width:700px){
+  .section{padding:68px 0}.section-head{margin-bottom:30px}.section-head h2,.fleet h2,.final h2{font-size:33px;letter-spacing:-1.5px}.section-head p{font-size:16px}
+  .price-grid{grid-template-columns:1fr}.card{padding:26px 22px}.card.featured{order:-1}.price{font-size:46px}.card .btn{width:100%}.fleet-banner{padding:17px 18px}
+  .mobile-swipe-hint{display:none}.process-wrap{overflow:visible;padding:0}.route-process{display:grid;grid-template-columns:1fr;gap:0}.route-process::before{display:block;left:26px;right:auto;top:27px;bottom:32px;width:2px;height:auto}
+  .route-step{position:relative;min-height:0;padding:0 0 30px 76px}.route-step:last-child{padding-bottom:0}.route-step .num{position:absolute;left:0;top:0;width:54px;height:54px;margin:0;border:7px solid #fff}.route-step h3{padding-top:5px;font-size:18px}.route-step p{font-size:15px}
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}.btn:hover,.upload-zone:hover,.route-step:hover,.proof-card:hover{transform:none}}
 </style>
 </head>
