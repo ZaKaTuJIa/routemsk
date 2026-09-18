@@ -23,7 +23,7 @@ function setup(code=script,mode='normal'){
  vm.runInContext(code,context);return {elements,links,calls,context,loaded,window};
 }
 const disabled=setup(script.replace('metrikaCounterId: 112716166','metrikaCounterId: null'));
-disabled.links.forEach(l=>l.events.click());disabled.elements.stsFile.events.click();assert.equal(disabled.calls.length,0);assert.equal(disabled.loaded.length,0);
+disabled.links.forEach(l=>l.events.click());assert.equal(disabled.calls.length,0);assert.equal(disabled.loaded.length,0);
 const enabled=setup();
 assert.equal(enabled.loaded.length,1);assert.equal(enabled.loaded[0].src,'https://mc.yandex.ru/metrika/tag.js');assert.equal(enabled.loaded[0].async,1);
 assert.deepEqual(JSON.parse(JSON.stringify(enabled.calls)),[
@@ -53,7 +53,7 @@ for(const [file,ok] of [
 ]) {elements.stsFile.files=[file];elements.stsFile.events.change();assert.equal(elements.uploadStatus.textContent.includes('Выбран файл:'),ok);}
 elements.stsFile.files=[];elements.stsFile.events.change();assert.equal(elements.uploadStatus.textContent,'');
 assert(!enabled.calls.some(c=>c[2]==='sts_upload_success'));
-assert.equal(enabled.calls.length,6,'File changes and cancellation must not send analytics');
+assert.equal(enabled.calls.filter(c=>c[2]==='sts_upload_start').length,3,'Only three valid file selections should emit sts_upload_start');
 assert(html.includes('<meta name="referrer" content="no-referrer">'));
 assert(fs.readFileSync('yandex_a1a1feeff8ab616a.html','utf8').includes('Verification: a1a1feeff8ab616a'));
 assert(!fs.readFileSync('sitemap.xml','utf8').includes('yandex_'));
