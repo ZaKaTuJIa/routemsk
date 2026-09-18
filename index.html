@@ -146,6 +146,14 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
 summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
 .process-wrap:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
 .hero-grid>*{min-width:0}
+.hero-copy{position:relative}
+.hero-copy::before{content:"ROUTE";position:absolute;left:-22px;top:-48px;font-size:118px;font-weight:900;letter-spacing:-8px;color:#f1f5f9;z-index:-1;pointer-events:none}
+.hero h1 .price-line{color:var(--blue)}
+.upload-card{box-shadow:0 22px 60px rgba(15,23,42,.08)}
+.upload-zone{border-style:dashed;border-width:2px}
+.trust-item{position:relative;padding-left:16px}
+.trust-item::before{content:"";position:absolute;left:0;top:24px;width:3px;height:34px;border-radius:3px;background:var(--blue)}
+@media(max-width:700px){.hero-copy::before{display:none}.upload-card{box-shadow:none}.trust-item{padding-left:12px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
 </style>
 </head>
@@ -164,7 +172,7 @@ summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
 <main id="top">
 <section class="hero">
   <div class="container hero-grid">
-    <div>
+    <div class="hero-copy">
       <div class="eyebrow">Грузовые пропуска · Москва</div>
       <h1>Пропуск на МКАД, ТТК и СК — <span class="price-line">8 000 ₽ под ключ</span></h1>
       <p class="lead">Для ИП и ООО. Оплата после оформления и проверки пропуска в реестре.</p>
