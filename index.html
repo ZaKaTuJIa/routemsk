@@ -444,7 +444,6 @@ async function submitStsToServer() {
 const fileInput=document.getElementById('stsFile');
 const uploadTitle=document.getElementById('uploadTitle');
 const uploadStatus=document.getElementById('uploadStatus');
-fileInput.addEventListener('click',()=>trackGoal(GOALS.uploadStart));
 fileInput.addEventListener('change',()=>{
   const file=fileInput.files[0];
   uploadTitle.textContent='Выбрать СТС';
@@ -459,6 +458,7 @@ fileInput.addEventListener('change',()=>{
   }
   uploadTitle.textContent='Выбрать другой СТС';
   uploadStatus.textContent='Выбран файл: '+file.name+'. Не отправлен — прикрепите его в Telegram или WhatsApp вручную.';
+  trackGoal(GOALS.uploadStart);
 });
 </script>
 </body>
