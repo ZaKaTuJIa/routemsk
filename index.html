@@ -2,9 +2,49 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ROUTE/MSK — пропуска МКАД, ТТК и СК</title>
 <meta name="description" content="Оформление грузовых пропусков МКАД, ТТК и СК для ИП и ООО. 8 000 ₽ под ключ.">
+<link rel="canonical" href="https://routemsk.ru/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="ROUTE/MSK">
+<meta property="og:title" content="ROUTE/MSK — пропуска МКАД, ТТК и СК">
+<meta property="og:description" content="Оформление грузовых пропусков для ИП и ООО. 8 000 ₽ под ключ. Оплата после оформления и проверки в реестре.">
+<meta property="og:url" content="https://routemsk.ru/">
+<meta property="og:image" content="https://routemsk.ru/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ROUTE/MSK — грузовые пропуска МКАД, ТТК и СК">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#2563eb">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://routemsk.ru/#website",
+      "url": "https://routemsk.ru/",
+      "name": "ROUTE/MSK",
+      "inLanguage": "ru-RU"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://routemsk.ru/#service",
+      "name": "Оформление грузовых пропусков МКАД, ТТК и СК",
+      "url": "https://routemsk.ru/",
+      "areaServed": {
+        "@type": "City",
+        "name": "Москва"
+      },
+      "description": "Оформление грузовых пропусков для ИП и ООО."
+    }
+  ]
+}
+</script>
 <style>
 :root{
   --ink:#0b1220;--muted:#64748b;--line:#e2e8f0;--soft:#f5f7fa;--blue:#2563eb;
@@ -13,12 +53,12 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;font-family:Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.5}
 a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40px));margin:0 auto}
-.header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.header__inner{height:72px;display:flex;align-items:center;gap:24px}.logo{font-size:22px;font-weight:800;letter-spacing:-.8px}.logo span{color:var(--blue)}
+.header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);box-shadow:0 6px 24px rgba(15,23,42,.035)}
+.header__inner{height:72px;display:flex;align-items:center;gap:24px}.logo{font-size:22px;font-weight:800;letter-spacing:-.8px}.logo span{color:var(--blue)}.logo{white-space:nowrap}
 .nav{display:flex;gap:22px;margin-left:auto}.nav a{font-size:14px;color:#475569}.nav a:hover{color:var(--blue)}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:12px;font-weight:700;transition:.2s ease}
 .btn-primary{background:var(--blue);color:#fff}.btn-primary:hover{background:var(--blue2);transform:translateY(-1px)}
-.btn-dark{background:var(--ink);color:#fff}.btn-white{background:#fff;color:var(--ink)}
+.btn-dark{background:var(--ink);color:#fff}.btn-white{background:#fff;color:var(--ink);box-shadow:0 12px 30px rgba(15,23,42,.18)}.btn:active{transform:translateY(1px)}
 .hero{padding:64px 0 26px}.hero-grid{display:grid;grid-template-columns:1.06fr .94fr;gap:54px;align-items:center}
 .eyebrow{font-size:12px;font-weight:800;letter-spacing:1.3px;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
 .hero h1{margin:0;max-width:680px;font-size:clamp(42px,4.4vw,58px);line-height:1.02;letter-spacing:-2.4px}
@@ -29,14 +69,14 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
 .upload-zone:hover{border-color:var(--blue);transform:translateY(-2px)}.upload-zone input{display:none}
 .upload-icon{width:50px;height:50px;border-radius:14px;background:#eff6ff;color:var(--blue);display:grid;place-items:center;font-size:27px;margin-bottom:14px}
 .upload-zone strong{font-size:18px}.upload-zone span,.upload-zone small{color:var(--muted)}.upload-zone small{margin-top:6px}
-.upload-ready{margin-top:16px;display:flex;flex-direction:column;gap:4px}.upload-ready span{font-size:13px;color:var(--muted)}.upload-ready a{color:var(--blue);font-weight:700}
+.upload-ready{margin-top:16px;display:flex;flex-direction:column;gap:8px}.upload-ready span{font-size:13px;color:var(--muted)}.upload-ready a{color:var(--blue);font-weight:700}.upload-ready .messenger-actions a{padding:0 14px;border:1px solid #cbd5e1;border-radius:10px;background:#fff}.upload-ready .messenger-actions a:first-child{background:var(--blue);border-color:var(--blue);color:#fff}
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:44px;border-top:1px solid var(--line)}
 .trust-item{padding:20px 14px 0 0;display:flex;flex-direction:column}.trust-item strong{font-size:23px;letter-spacing:-.7px}.trust-item span{font-size:13px;color:var(--muted)}
 .section{padding:80px 0}.section-gray{background:var(--soft)}.section-dark{background:var(--dark);color:#fff}
 .section-head{max-width:760px;margin-bottom:34px}.section-head h2,.fleet h2,.final h2{font-size:clamp(32px,3.6vw,46px);line-height:1.08;letter-spacing:-1.7px;margin:0}
 .section-head p{font-size:17px;color:var(--muted);margin:12px 0 0}
 .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{padding:26px;background:#fff;border:1px solid var(--line);border-radius:18px}
-.card.featured{border-color:var(--blue)}.tag{display:inline-block;background:#eff6ff;color:var(--blue);padding:6px 10px;border-radius:8px;font-size:12px;font-weight:800}
+.card.featured{border-color:var(--blue);position:relative;box-shadow:0 18px 42px rgba(37,99,235,.09)}.tag{display:inline-block;background:#eff6ff;color:var(--blue);padding:6px 10px;border-radius:8px;font-size:12px;font-weight:800}
 .card h3{margin:14px 0 0}.price{font-size:40px;font-weight:800;letter-spacing:-1.7px;margin:10px 0 4px}.card p{color:var(--muted);margin:0}
 .card ul{padding:0;list-style:none;display:grid;gap:8px;margin:20px 0 22px}.card li:before{content:"✓";color:var(--green);font-weight:800;margin-right:8px}
 .fleet-banner{margin-top:16px;background:var(--ink);color:#fff;border-radius:14px;padding:16px 18px;display:flex;gap:12px;align-items:center}.fleet-banner a{margin-left:auto;color:#93c5fd;font-weight:700}
@@ -44,7 +84,10 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
 .process-wrap{overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
 .route-process{position:relative;display:grid;grid-template-columns:repeat(6,minmax(150px,1fr));gap:12px;min-width:980px}
 .route-process::before{content:"";position:absolute;left:4%;right:4%;top:25px;height:2px;background:#dbe3ec;z-index:0}
-.route-step{position:relative;z-index:1;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 16px 18px;scroll-snap-align:start}
+.route-step{position:relative;z-index:1;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 16px 18px;scroll-snap-align:start;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+.route-step:hover{border-color:#bfdbfe;transform:translateY(-3px);box-shadow:0 12px 28px rgba(15,23,42,.07)}
+.route-step:hover .num{background:var(--blue);color:#fff}
+.route-step .num{transition:background .2s ease,color .2s ease}
 .route-step .num{width:46px;height:46px;border-radius:13px;background:#eff6ff;color:var(--blue);display:grid;place-items:center;font-weight:800;margin-bottom:16px}
 .route-step h3{font-size:17px;margin:0 0 7px}.route-step p{font-size:14px;color:var(--muted);margin:0}
 
@@ -61,16 +104,16 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
 .tags{display:flex;flex-wrap:wrap;gap:9px}.tags span{background:#f1f5f9;padding:9px 13px;border-radius:10px;font-size:14px}
 
 .proof-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
-.proof-card{padding:26px;background:#fff;border:1px solid var(--line);border-radius:18px}
+.proof-card{padding:26px;background:#fff;border:1px solid var(--line);border-radius:18px;transition:transform .2s ease,border-color .2s ease}.proof-card:hover{transform:translateY(-3px);border-color:#bfdbfe}
 .proof-card h3{margin:0 0 10px}.proof-card p{color:var(--muted);margin:0}
 .proof-list{display:grid;gap:10px;margin-top:18px}.proof-item{display:flex;gap:12px;align-items:flex-start}
 .proof-dot{width:10px;height:10px;border-radius:50%;background:var(--blue);margin-top:7px;flex:0 0 10px}
 
 .faq{display:grid;grid-template-columns:.72fr 1.28fr;gap:46px}.faq-side{display:flex;flex-direction:column;justify-content:space-between;gap:22px}
 .contact-card{padding:18px;border:1px solid var(--line);border-radius:16px;background:#f8fafc}.contact-card strong{display:block;margin-bottom:6px}.contact-card p{margin:0 0 14px;color:var(--muted);font-size:14px}
-.faq-item{border-bottom:1px solid var(--line)}.faq-item button{width:100%;padding:17px 0;background:none;border:0;display:flex;justify-content:space-between;font-size:16px;font-weight:700;cursor:pointer;text-align:left}
-.faq-answer{display:none;color:var(--muted);padding-bottom:16px}.faq-item.open .faq-answer{display:block}
-.final{background:var(--blue);color:#fff;padding:52px 0}.final-inner{display:flex;align-items:center;justify-content:space-between;gap:34px}.final .btn{white-space:nowrap}
+.faq-item{border:1px solid var(--line);border-radius:14px;padding:0 16px;margin-bottom:10px;background:#fff;transition:border-color .2s ease,box-shadow .2s ease}.faq-item[open]{border-color:#bfdbfe;box-shadow:0 10px 28px rgba(15,23,42,.05)}.faq-item summary{width:100%;padding:17px 0;background:none;border:0;display:flex;justify-content:space-between;font-size:16px;font-weight:700;cursor:pointer;text-align:left}
+.faq-answer{display:none;color:var(--muted);padding:0 0 16px;line-height:1.6}.faq-item[open] .faq-answer{display:block}
+.final{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--blue),#1e40af);color:#fff;padding:58px 0}.final-inner{position:relative;z-index:1}.final-inner{display:flex;align-items:center;justify-content:space-between;gap:34px}.final .btn{white-space:nowrap}
 .footer{background:#080d16;color:#fff;padding:36px 0}.footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:28px}.footer p,.footer a{color:#94a3b8}.footer a{display:block;margin-bottom:7px}
 [hidden]{display:none!important}
 .upload-purpose{font-size:13px;line-height:1.4;color:var(--muted);margin:10px 0 0}
@@ -79,7 +122,7 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
 @media(max-width:1000px){
   .nav{display:none}.hero-grid,.fleet,.docs,.faq,.footer-grid,.proof-grid{grid-template-columns:1fr}.support-grid{grid-template-columns:1fr 1fr}.trust-grid{grid-template-columns:repeat(2,1fr)}.fleet-points{grid-template-columns:repeat(3,1fr)}
 }
-@media(max-width:700px){.mobile-swipe-hint{display:block}.hero-next{display:none}
+@media(max-width:700px){.mobile-swipe-hint{display:block}.hero-next{display:none}.route-process{min-width:0;display:flex;gap:12px}.route-step{flex:0 0 82%;min-width:0}.route-process::before{display:none}
   .container{width:min(100% - 28px,1180px)}.header .btn-dark{display:none}.header__inner{height:60px}.hero{padding:24px 0 26px}.hero-grid{gap:20px;align-items:start}.hero h1{font-size:34px;line-height:1.04;letter-spacing:-1.4px}.hero .eyebrow{margin-bottom:10px}.hero h1 .price-line{margin-top:6px}.lead{font-size:16px;line-height:1.4;margin:14px 0 12px}.benefits{font-size:14px;line-height:1.4;gap:6px;margin-bottom:12px}.hero .micro{margin:8px 0 0}.upload-card{padding:20px 18px}.upload-card h2{font-size:24px;line-height:1.15;margin-bottom:12px}.upload-zone{min-height:156px}.upload-icon{width:42px;height:42px;margin-bottom:8px}.upload-ready{margin-top:12px}.section{padding:64px 0}
   .price-grid,.support-grid,.fleet-points{grid-template-columns:1fr}.trust-grid{grid-template-columns:repeat(2,1fr)}.fleet-banner,.final-inner{flex-direction:column;align-items:flex-start}.fleet-banner a{margin-left:0}.final .btn{width:100%;white-space:normal}
 }
@@ -96,39 +139,160 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
 .upload-status{font-size:13px;line-height:1.4;color:#475569;margin:8px 0 0;overflow-wrap:anywhere}
 .upload-status:empty{display:none}
 .legal-pending{display:block;font-size:13px;color:#94a3b8;margin:8px 0}
-@media(max-width:700px){[id]{scroll-margin-top:76px}.upload-card{padding:16px 18px}.upload-zone{min-height:140px}.upload-ready{margin-top:6px}.upload-purpose{margin-top:8px}}
+@media(max-width:700px){[id]{scroll-margin-top:76px}.header__inner{justify-content:space-between}.logo{font-size:20px}.upload-card{padding:16px 18px}.upload-zone{min-height:140px}.upload-ready{margin-top:6px}.upload-ready .messenger-actions{display:grid;grid-template-columns:1fr;gap:8px}.upload-ready .messenger-actions a{width:100%;justify-content:center}.upload-purpose{margin-top:8px}.price-grid .card{padding:22px}.card.featured{order:-1}.card.featured .btn{width:100%}.final{padding:44px 0}.final h2{font-size:30px}.trust-item strong{font-size:20px}}
+.skip-link{position:absolute;top:-80px;left:16px;z-index:100;background:#fff;padding:12px 16px}
+.skip-link:focus{top:8px}
+.faq-item summary{list-style:none;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";flex-shrink:0}
+.faq-item[open] summary::after{content:"−"}
+summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.process-wrap:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.hero-grid>*{min-width:0}
+.hero-copy{position:relative}
+.hero h1 .price-line{color:var(--blue)}
+.upload-card{box-shadow:0 22px 60px rgba(15,23,42,.08)}
+.upload-zone{border-style:dashed;border-width:2px}
+.trust-item{position:relative;padding-left:16px}
+.trust-item::before{content:"";position:absolute;left:0;top:24px;width:3px;height:34px;border-radius:3px;background:var(--blue)}
+@media(max-width:700px){.upload-card{box-shadow:none}.trust-item{padding-left:12px}}
+/* Redesign A: service bar, recomposed hero, STS route panel, proof rail. */
+:root{--ink:#08111f;--ink-2:#0f172a;--muted:#5d6b82;--line:#dce4ee;--soft:#f4f7fb;--blue:#2563eb;--blue2:#1d4ed8;--green:#16a34a;--dark:#08111f}
+body{font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);letter-spacing:-.01em}
+.container{width:min(1240px,calc(100% - 48px))}
+.header{background:rgba(255,255,255,.97);border-bottom:1px solid rgba(220,228,238,.9);box-shadow:none}
+.header__inner{height:72px;gap:24px}.logo{font-size:24px;letter-spacing:-1.2px}
+.nav{gap:4px;padding:4px;background:var(--soft);border:1px solid #e8edf5;border-radius:12px}
+.nav a{padding:7px 9px;border-radius:8px;font-size:13px;font-weight:650;color:#46546b}.nav a:hover{background:#fff;color:var(--blue)}
+.btn{min-height:48px;padding:0 22px;border-radius:11px;font-weight:750;letter-spacing:-.01em}
+.btn-primary{background:var(--blue);box-shadow:0 10px 24px rgba(37,99,235,.2)}.btn-primary:hover{background:var(--blue2);box-shadow:0 14px 30px rgba(37,99,235,.24)}
+.btn-dark{background:var(--ink);color:#fff}.btn-outline{border-color:#c8d2e2;color:var(--ink);background:#fff}.btn-outline:hover{border-color:#9eb6e3;color:var(--blue)}
+.header-cta{min-height:44px;padding:0 18px;font-size:13px}
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:76px 0 48px;background:linear-gradient(180deg,#fff 0%,#f7f9fd 100%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background-image:linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,#000,transparent 72%)}
+.hero::after{content:"";position:absolute;z-index:-1;width:620px;height:620px;right:-220px;top:-300px;border-radius:50%;background:rgba(37,99,235,.08)}
+.hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(420px,.9fr);gap:72px;align-items:center}
+.eyebrow{margin-bottom:16px;font-size:11px;letter-spacing:1.7px;color:var(--blue)}
+.hero h1{max-width:720px;font-size:clamp(48px,4.7vw,64px);line-height:1;letter-spacing:-3.4px}.hero h1 .price-line{margin-top:14px;color:var(--blue);letter-spacing:-3px}
+.lead{max-width:610px;margin:24px 0 20px;font-size:18px;line-height:1.55;color:#46546b}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}.hero-actions .btn{min-width:184px}
+.hero-proof{display:grid;grid-template-columns:repeat(3,1fr);max-width:650px;margin-bottom:18px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.78)}
+.hero-proof div{padding:13px 14px;border-right:1px solid var(--line)}.hero-proof div:last-child{border-right:0}.hero-proof strong,.hero-proof span{display:block}.hero-proof strong{font-size:13px}.hero-proof span{margin-top:2px;font-size:11px;color:var(--muted)}
+.benefits{grid-template-columns:1fr 1fr;gap:8px 16px;margin-bottom:0;font-size:14px;color:#334155}.benefits div{position:relative;padding-left:22px}.benefits div::before{content:"";position:absolute;left:2px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(22,163,74,.1)}
+.hero-next{margin:16px 0 0;font-size:14px}.micro{font-size:12px}
+.upload-card{position:relative;padding:28px;background:var(--dark);border:1px solid #14213a;border-radius:28px;box-shadow:0 32px 80px rgba(8,17,31,.2)}
+.upload-card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(145deg,rgba(37,99,235,.14),transparent 48%)}.upload-card>*{position:relative;z-index:1}
+.panel-top{display:flex;align-items:center;justify-content:space-between;gap:16px}.panel-top .eyebrow{margin:0;color:#9bb9ff}.panel-top>span{padding:7px 9px;border:1px solid rgba(255,255,255,.16);border-radius:8px;color:#afbdd2;font-size:11px;font-weight:800;letter-spacing:.06em}
+.upload-card h2{margin:16px 0 0;color:#fff;font-size:32px;letter-spacing:-1px}.panel-lead{margin:4px 0 18px;color:#aebbd0;font-size:14px}
+.upload-zone{min-height:218px;padding:22px;background:#fff;border:1px solid #fff;border-radius:18px;box-shadow:inset 0 0 0 1px #e1e8f3}.upload-zone:hover{border-color:#fff;box-shadow:inset 0 0 0 2px var(--blue),0 16px 34px rgba(0,0,0,.18)}
+.upload-icon{width:54px;height:54px;border-radius:15px;background:var(--blue);color:#fff;box-shadow:0 12px 26px rgba(37,99,235,.28)}.upload-zone strong{font-size:20px}.upload-zone span{margin-top:4px}
+.application-route{display:grid;grid-template-columns:auto 1fr auto 1fr auto;align-items:center;gap:10px;margin:16px 0 12px}.application-route div{display:flex;align-items:center;gap:7px;color:#fff;font-size:12px}.application-route b{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:#16243b;color:#9bb9ff;font-size:10px}.application-route i{height:1px;background:#31415d}
+.upload-card .upload-purpose,.upload-card .upload-ready>span{color:#aebbd0}.upload-card .upload-purpose{line-height:1.55}.upload-card .upload-status{color:#dbe6fb}
+.upload-ready .messenger-actions{gap:8px}.upload-ready .messenger-actions a{min-height:46px;padding:0 16px;border-color:#31415d;background:#111d32;color:#dce6f8}.upload-ready .messenger-actions a:first-child{background:var(--blue);border-color:var(--blue);color:#fff}
+.trust-grid{position:relative;z-index:2;overflow:hidden;grid-template-columns:repeat(4,1fr);margin-top:48px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 20px 55px rgba(15,23,42,.08)}
+.trust-item{min-height:108px;padding:25px 22px;border-right:1px solid var(--line)}.trust-item:last-child{border-right:0}.trust-item::before{display:none}.trust-item strong{font-size:22px}.trust-item span{margin-top:4px;font-size:13px}
+@media(max-width:1100px){.hero-grid{gap:40px}.hero h1{font-size:52px}.benefits{grid-template-columns:1fr}}
+@media(max-width:1000px){.hero{padding-top:52px}.hero-grid{grid-template-columns:1fr;gap:34px}.hero-copy,.upload-card{max-width:760px}}
+@media(max-width:700px){
+  .container{width:min(100% - 28px,1240px)}.header__inner{height:60px}.header .header-cta{display:inline-flex;min-height:44px;padding:0 15px}
+  .hero{padding:34px 0 28px}.hero-grid{gap:22px}.hero h1{font-size:38px;line-height:1.02;letter-spacing:-2.2px}.hero h1 .price-line{margin-top:9px;letter-spacing:-2px}.lead{margin:17px 0 15px;font-size:16px}
+  .hero-actions{display:grid;grid-template-columns:1fr;margin-bottom:14px}.hero-actions .btn{width:100%}.hero-proof{grid-template-columns:1fr 1fr;margin-bottom:14px}.hero-proof div{border-bottom:1px solid var(--line)}.hero-proof div:nth-child(2){border-right:0}.hero-proof div:last-child{grid-column:1/-1;border-bottom:0}
+  .benefits{gap:7px}.upload-card{padding:22px 18px 18px;border-radius:22px}.upload-card h2{font-size:28px}.upload-zone{min-height:170px}.application-route{gap:7px}.application-route div{gap:5px}.application-route b{width:26px;height:26px}
+  .trust-grid{margin-top:24px;border-radius:16px}.trust-item{min-height:96px;padding:20px 16px;border-bottom:1px solid var(--line)}.trust-item:nth-child(2){border-right:0}.trust-item:nth-last-child(-n+2){border-bottom:0}.trust-item strong{font-size:19px}.trust-item span{font-size:12px}
+}
+@media(max-width:420px){.header-cta{font-size:0;min-width:72px}.header-cta::after{content:"СТС";font-size:13px}.hero h1{font-size:36px}.application-route span{font-size:11px}}
+/* Redesign B: asymmetric pricing and six-stop route timeline. */
+.section{padding:96px 0}.section-gray{background:var(--soft)}.section-head{max-width:820px;margin-bottom:42px}
+.section-head h2,.fleet h2,.final h2{font-size:clamp(38px,3.7vw,48px);line-height:1.04;letter-spacing:-2.2px}.section-head p{max-width:650px;margin-top:15px;font-size:17px;line-height:1.6}
+.price-grid{grid-template-columns:3fr 2fr;gap:18px;align-items:stretch}.card{position:relative;overflow:hidden;padding:32px;border-radius:22px;border-color:#dfe6f0;box-shadow:0 14px 40px rgba(15,23,42,.045)}
+.card.featured{border:1px solid #17243a;background:var(--ink-2);color:#fff;box-shadow:0 24px 60px rgba(8,17,31,.16)}.card.featured::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:var(--blue)}
+.card.featured .tag{background:rgba(37,99,235,.18);color:#aac1ff}.card.featured p{color:#aebbd0}.card.featured li{color:#e6edf8}.card.featured .price{color:#fff}.card.featured .btn{box-shadow:none}
+.tag{padding:7px 11px;border-radius:999px}.card h3{font-size:20px}.price{margin:12px 0 5px;font-size:52px;letter-spacing:-2.8px}.card ul{gap:11px;margin:25px 0}.card li{color:#334155}.card .btn{min-width:220px}
+.fleet-banner{margin-top:14px;padding:18px 22px;border:1px solid #cddcff;border-radius:15px;background:#eaf1ff;color:var(--ink)}.fleet-banner a{color:var(--blue)}
+.process-wrap{overflow:visible;padding:4px 0 0}.route-process{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:0;min-width:0}.route-process::before{display:block;left:7%;right:7%;top:27px;height:2px;background:#cad7ec}
+.route-step{min-height:190px;padding:0 12px;border:0;border-radius:0;background:transparent;box-shadow:none;text-align:left}.route-step:hover{border-color:transparent;transform:none;box-shadow:none}.route-step:hover .num{background:var(--blue);color:#fff}
+.route-step .num{position:relative;width:54px;height:54px;margin:0 0 18px;border:7px solid #fff;border-radius:50%;background:#eaf1ff;color:var(--blue);box-shadow:0 0 0 1px #bfd0ec;font-size:12px}.route-step h3{font-size:17px;margin:0 0 8px}.route-step p{font-size:14px;line-height:1.55}
+@media(max-width:1000px){.route-process{grid-template-columns:repeat(3,1fr);gap:24px 0}.route-process::before{display:none}.route-step{min-height:165px;padding:0 18px 0 0}.route-step .num{border-width:5px}}
+@media(max-width:700px){
+  .section{padding:68px 0}.section-head{margin-bottom:30px}.section-head h2,.fleet h2,.final h2{font-size:33px;letter-spacing:-1.5px}.section-head p{font-size:16px}
+  .price-grid{grid-template-columns:1fr}.card{padding:26px 22px}.card.featured{order:-1}.price{font-size:46px}.card .btn{width:100%}.fleet-banner{padding:17px 18px}
+  .mobile-swipe-hint{display:none}.process-wrap{overflow:visible;padding:0}.route-process{display:grid;grid-template-columns:1fr;gap:0}.route-process::before{display:block;left:26px;right:auto;top:27px;bottom:32px;width:2px;height:auto}
+  .route-step{position:relative;min-height:0;padding:0 0 30px 76px}.route-step:last-child{padding-bottom:0}.route-step .num{position:absolute;left:0;top:0;width:54px;height:54px;margin:0;border:7px solid #fff}.route-step h3{padding-top:5px;font-size:18px}.route-step p{font-size:15px}
+}
+/* Redesign C: operations modules, evidence hierarchy, closing conversion. */
+.section-dark{position:relative;overflow:hidden;background:var(--dark)}.section-dark::after{content:"";position:absolute;width:480px;height:480px;right:-250px;top:-260px;border-radius:50%;background:rgba(37,99,235,.16)}.section-dark .container{position:relative;z-index:1}.section-dark .section-head{max-width:720px}
+.support-grid{grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid #273750;border-bottom:1px solid #273750}.support-grid article{min-height:182px;padding:28px;border:0;border-right:1px solid #273750;border-radius:0;background:transparent}.support-grid article:last-child{border-right:0}.support-grid h3{font-size:19px}.support-grid h3::before{content:"";display:inline-block;width:9px;height:9px;margin-right:10px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(22,163,74,.1)}.support-grid p{line-height:1.65;color:#b9c6da}
+.fleet{grid-template-columns:1.08fr .92fr;gap:72px}.fleet p{max-width:680px;line-height:1.65}.fleet-note{padding:16px 18px!important;border-left:4px solid var(--blue);border-radius:10px!important;background:var(--soft)}
+.fleet-points{gap:10px}.fleet-stat{padding:20px;border-radius:14px;background:var(--soft)}.route-status{padding:32px;border:0;border-radius:24px;background:var(--ink);box-shadow:0 28px 70px rgba(8,17,31,.18)}
+.route-status .micro{color:#8fa0b9}.route-status .route-item{color:#fff}.route-status .route-item span{background:#1d2a41;color:#aebbd0}.route-status .route-item small{color:#93a4bc}.route-status .route-line{background:#2a3a55}.route-status .route-item.active span{background:var(--blue);box-shadow:0 10px 25px rgba(37,99,235,.32)}
+.docs{grid-template-columns:.78fr 1.22fr;gap:20px}.docbox{padding:30px;border-radius:22px}.docs .docbox:first-child{border-color:#16243b;background:var(--ink-2);color:#fff;box-shadow:0 22px 55px rgba(8,17,31,.13)}.docs .docbox:first-child .main-doc{background:var(--blue);color:#fff}.main-doc{padding:26px;border-radius:16px;font-size:38px;letter-spacing:-1.5px}.tags{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tags span{position:relative;padding:12px 14px 12px 34px;border:1px solid #e2e8f0;background:#f8fafc}.tags span::before{content:"";position:absolute;left:14px;top:17px;width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.proof-grid{grid-template-columns:1.15fr .85fr;gap:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}.proof-card{min-height:210px;padding:34px;border:0;border-radius:0;background:#fff;box-shadow:none}.proof-card:first-child{background:#edf3ff}.proof-card+.proof-card{border-left:1px solid var(--line)}.proof-card:hover{transform:none;border-color:transparent}.proof-card h3{max-width:420px;font-size:23px;line-height:1.2}.proof-card p{max-width:520px;line-height:1.65}
+.faq{grid-template-columns:.76fr 1.24fr;gap:72px}.faq-side>div:first-child p{color:var(--muted);line-height:1.6}.contact-card{padding:24px;border-radius:18px;background:var(--soft)}
+.faq-item{padding:0 22px;margin-bottom:12px;border-radius:16px}.faq-item summary{min-height:64px;padding:19px 0;font-size:17px}.faq-item summary::after{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:#eaf1ff;color:var(--blue)}.faq-item[open]{border-color:#a9c1ef;box-shadow:0 10px 28px rgba(15,23,42,.055)}.faq-answer{padding-bottom:20px;line-height:1.65}
+.final{padding:80px 0;background:var(--soft)}.final-inner{align-items:flex-end;padding:52px 56px;border-radius:28px;background:var(--dark);box-shadow:0 30px 80px rgba(8,17,31,.17)}.final-inner>div:first-child{max-width:700px}.final h2{color:#fff}.final p{margin:15px 0 0;color:#b9c6da;font-size:17px}.final-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:10px}.btn-ghost{border:1px solid #40506b;color:#fff;background:rgba(255,255,255,.04)}.btn-ghost:hover{border-color:#6f83a4;background:rgba(255,255,255,.08)}
+.footer{padding:46px 0;background:#050a13}.footer-grid{grid-template-columns:1.25fr .7fr 1.05fr;gap:48px}.footer strong{display:block;margin-bottom:12px}.footer p,.footer a,.legal-pending{font-size:14px;line-height:1.55}
+@media(max-width:1000px){
+  .price-grid,.fleet,.docs,.faq,.proof-grid,.footer-grid{grid-template-columns:1fr}
+  .support-grid{grid-template-columns:1fr}
+  .trust-grid{grid-template-columns:repeat(2,1fr)}
+  .support-grid article{min-height:0;border-right:0;border-bottom:1px solid #273750}
+  .support-grid article:last-child{border-bottom:0}
+  .trust-item{border-bottom:1px solid var(--line)}
+  .trust-item:nth-child(2){border-right:0}
+  .trust-item:nth-last-child(-n+2){border-bottom:0}
+  .fleet{gap:36px}.faq{gap:40px}.footer-grid{gap:28px}
+}
+@media(max-width:700px){
+  .support-grid{grid-template-columns:1fr}.support-grid article{min-height:0;padding:22px 0;border-right:0;border-bottom:1px solid #273750}.support-grid article:last-child{border-bottom:0}
+  .fleet{gap:28px}.fleet-points{grid-template-columns:1fr 1fr}.route-status{padding:26px 22px}.docs{grid-template-columns:1fr}.docbox{padding:24px 20px}.tags{grid-template-columns:1fr}
+  .proof-grid{grid-template-columns:1fr}.proof-card{min-height:0;padding:26px 22px}.proof-card+.proof-card{border-left:0;border-top:1px solid var(--line)}.faq{gap:28px}.contact-card{padding:20px}
+  .final{padding:56px 0}.final-inner{align-items:flex-start;padding:32px 22px;border-radius:22px}.final-actions{width:100%;justify-content:stretch}.final-actions .btn{width:100%}.footer{padding:40px 0}.footer-grid{gap:30px}
+}
+@media(max-width:420px){.fleet-points{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}.btn:hover,.upload-zone:hover,.route-step:hover,.proof-card:hover{transform:none}}
 </style>
 </head>
 <body>
+<a class="skip-link" href="#top">Перейти к содержимому</a>
 <header class="header">
   <div class="container header__inner">
     <a class="logo" href="#top">ROUTE<span>/</span>MSK</a>
-    <nav class="nav">
+    <nav class="nav" aria-label="Основная навигация">
       <a href="#prices">Цены</a><a href="#process">Как работаем</a><a href="#fleet">Автопаркам</a><a href="#documents">Документы</a><a href="#proof">Доверие</a><a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-dark" href="#check">Проверить по СТС</a>
+    <a class="btn btn-dark header-cta" href="#check">Начать</a>
   </div>
 </header>
 
 <main id="top">
 <section class="hero">
   <div class="container hero-grid">
-    <div>
+    <div class="hero-copy">
       <div class="eyebrow">Грузовые пропуска · Москва</div>
       <h1>Пропуск на МКАД, ТТК и СК — <span class="price-line">8 000 ₽ под ключ</span></h1>
       <p class="lead">Для ИП и ООО. Оплата после оформления и проверки пропуска в реестре.</p>
-      <div class="benefits">
-        <div>✓ Временный пропуск включён</div>
-        <div>✓ Рассмотрение годового — 10 рабочих дней с даты подачи</div>
-        <div>✓ Повторные подачи после отказа без доплаты</div>
+      <div class="hero-actions" data-messenger-container>
+        <a class="btn btn-primary" href="#check">Проверить по СТС</a>
+        <a class="btn btn-outline" data-messenger-link href="https://t.me/Mary_Romanova_tg" data-goal="telegram_click" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
       </div>
-      <p class="hero-next">Начните с СТС — загрузка справа <span>→</span></p>
+      <div class="hero-proof" aria-label="Ключевые условия">
+        <div><strong>С 2014 года</strong><span>опыт оформления</span></div>
+        <div><strong>Постоплата</strong><span>после проверки</span></div>
+        <div><strong>10 рабочих дней</strong><span>с даты подачи</span></div>
+      </div>
+      <div class="benefits">
+        <div>Временный пропуск включён</div>
+        <div>Рассмотрение годового — 10 рабочих дней с даты подачи</div>
+        <div>Повторные подачи после отказа без доплаты</div>
+      </div>
+      <p class="hero-next">Начните с СТС или сразу напишите в мессенджер.</p>
       <p class="micro">Для первичной проверки достаточно одного СТС</p>
     </div>
 
     <div class="upload-card" id="check">
-      <div class="eyebrow">Первичная проверка</div>
-      <h2>Достаточно одного СТС</h2>
+      <div class="panel-top"><div class="eyebrow">Первичная проверка</div><span>Старт с СТС</span></div>
+      <h2>Маршрут заявки</h2>
+      <p class="panel-lead">Для начала достаточно одного СТС</p>
       <label class="upload-zone">
         <input type="file" aria-describedby="stsPurpose" id="stsFile" aria-label="Выбрать СТС на устройстве" accept=".jpg,.jpeg,.png,.pdf">
         <div class="upload-icon">＋</div>
@@ -137,7 +301,12 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
         <small>JPG, PNG или PDF · до 10 МБ</small>
       </label>
       <p id="uploadStatus" class="upload-status" role="status" aria-live="polite"></p>
-      <p class="upload-purpose" id="stsPurpose">Файл остаётся на вашем устройстве. В мессенджере прикрепите его вручную.</p>
+      <div class="application-route" aria-label="Этапы после передачи СТС">
+        <div><b>01</b><span>СТС</span></div><i aria-hidden="true"></i>
+        <div><b>02</b><span>Проверка</span></div><i aria-hidden="true"></i>
+        <div><b>03</b><span>Подача</span></div>
+      </div>
+      <p class="upload-purpose" id="stsPurpose">Выбор файла необязателен. Можно сразу открыть мессенджер. Файл остаётся на вашем устройстве — прикрепите его в переписке вручную.</p>
       <div class="upload-ready" data-messenger-container>
         <span>Отправьте СТС в удобный мессенджер:</span>
         <div class="messenger-actions"><a data-messenger-link href="https://t.me/Mary_Romanova_tg" data-goal="telegram_click" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
@@ -170,7 +339,7 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
         <ul>
           <li>Временный пропуск включён</li><li>Оплата после оформления</li><li>Проверка пропуска в реестре</li><li>Повторные подачи без доплаты</li>
         </ul>
-        <a class="btn btn-primary" href="#check">Загрузить СТС</a>
+        <a class="btn btn-primary" href="#check">Выбрать СТС</a>
       </article>
       <article class="card">
         <h3>Временный пропуск</h3>
@@ -194,7 +363,7 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
       <h2>От СТС до пропуска — понятный маршрут</h2>
     </div>
     <div class="mobile-swipe-hint">На телефоне листайте этапы →</div>
-    <div class="process-wrap">
+    <div class="process-wrap" tabindex="0" role="region" aria-label="Этапы оформления; прокрутите вправо для следующих этапов">
       <div class="route-process">
         <article class="route-step"><div class="num">01</div><h3>Проверяем</h3><p>На первом этапе достаточно СТС.</p></article>
         <article class="route-step"><div class="num">02</div><h3>Готовим</h3><p>Собираем и подготавливаем заявление.</p></article>
@@ -256,7 +425,7 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
       <div class="docbox">
         <h3>Для первоначальной проверки</h3>
         <div class="main-doc">СТС</div>
-        <a class="btn btn-primary" href="#check">Прикрепить СТС</a>
+        <a class="btn btn-primary" href="#check">Выбрать СТС</a>
       </div>
       <div class="docbox">
         <h3>Для полного оформления могут понадобиться</h3>
@@ -304,12 +473,12 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
       </div>
     </div>
     <div>
-      <div class="faq-item"><button>Сколько занимает оформление?<span>+</span></button><div class="faq-answer">Срок рассмотрения годового пропуска — 10 рабочих дней с даты подачи заявления на портал. Временный пропуск оформляется за 1 рабочий день.</div></div>
-      <div class="faq-item"><button>Какие документы нужны?<span>+</span></button><div class="faq-answer">Для первичной проверки достаточно СТС. Полный комплект документов зависит от конкретной ситуации.</div></div>
-      <div class="faq-item"><button>Когда происходит оплата?<span>+</span></button><div class="faq-answer">Оплата годового оформления производится после оформления и проверки пропуска в реестре.</div></div>
-      <div class="faq-item"><button>Что происходит при отказе?<span>+</span></button><div class="faq-answer">Разбираемся в причине отказа и подаём повторно без дополнительной оплаты.</div></div>
-      <div class="faq-item"><button>Что если пропуск аннулировали?<span>+</span></button><div class="faq-answer">Разбираемся в причине и повторно подаём бесплатно до окончания первоначального срока действия. Исключение — штрафы клиента.</div></div>
-      <div class="faq-item"><button>Работаете с ИП и ООО?<span>+</span></button><div class="faq-answer">Да. Работаем как с ИП, так и с ООО.</div></div>
+      <details class="faq-item"><summary>Сколько занимает оформление?</summary><div class="faq-answer">Срок рассмотрения годового пропуска — 10 рабочих дней с даты подачи заявления на портал. Временный пропуск оформляется за 1 рабочий день.</div></details>
+      <details class="faq-item"><summary>Какие документы нужны?</summary><div class="faq-answer">Для первичной проверки достаточно СТС. Полный комплект документов зависит от конкретной ситуации.</div></details>
+      <details class="faq-item"><summary>Когда происходит оплата?</summary><div class="faq-answer">Оплата годового оформления производится после оформления и проверки пропуска в реестре.</div></details>
+      <details class="faq-item"><summary>Что происходит при отказе?</summary><div class="faq-answer">Разбираемся в причине отказа и подаём повторно без дополнительной оплаты.</div></details>
+      <details class="faq-item"><summary>Что если пропуск аннулировали?</summary><div class="faq-answer">Разбираемся в причине и повторно подаём бесплатно до окончания первоначального срока действия. Исключение — штрафы клиента.</div></details>
+      <details class="faq-item"><summary>Работаете с ИП и ООО?</summary><div class="faq-answer">Да. Работаем как с ИП, так и с ООО.</div></details>
     </div>
   </div>
 </section>
@@ -321,7 +490,10 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
       <h2>Для первичной проверки достаточно одного СТС</h2>
       <p>Без длинной анкеты и регистрации.</p>
     </div>
-    <a class="btn btn-white" href="#check">Прикрепить СТС →</a>
+    <div class="final-actions" data-messenger-container>
+      <a class="btn btn-primary" href="#check">Выбрать СТС →</a>
+      <a class="btn btn-ghost" data-messenger-link href="https://t.me/Mary_Romanova_tg" data-goal="telegram_click" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+    </div>
   </div>
 </section>
 </main>
@@ -348,14 +520,28 @@ a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40p
   </div>
 </footer>
 
-<!-- YANDEX_METRIKA_SLOT: после получения counter ID вставить официальный код
-счётчика из кабинета Метрики и указать тот же ID ниже. До этого сетевых запросов
-в Метрику нет. Не включать запись содержимого формы/документов. См. MVP_SETUP.md. -->
+<!-- Yandex Metrica: официальный загрузчик, минимальная аналитика. См. MVP_SETUP.md. -->
 <script>
 'use strict';
-const ROUTEMSK_CONFIG = Object.freeze({ metrikaCounterId: null });
+const ROUTEMSK_CONFIG = Object.freeze({ metrikaCounterId: 112716166 });
+function initMetrika() {
+  const id=ROUTEMSK_CONFIG.metrikaCounterId;
+  if (!Number.isSafeInteger(id) || id<=0) return;
+  try {
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1;k.src=r;a.parentNode.insertBefore(k,a)})
+    (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+    window.ym(id,'init',{
+      defer:true,clickmap:false,trackLinks:false,webvisor:false,
+      trackHash:false,ecommerce:false,sendTitle:false,accurateTrackBounce:true
+    });
+    // Один просмотр с постоянным URL: не передавать query/hash и внешний referrer.
+    window.ym(id,'hit','https://routemsk.ru/',{referer:'',title:'ROUTE/MSK'});
+  } catch (_) { /* Блокировщик счётчика не должен ломать выбор файла и ссылки. */ }
+}
+initMetrika();
 const GOALS = Object.freeze({telegram:'telegram_click',whatsapp:'whatsapp_click',
-  phone:'phone_click',uploadStart:'sts_upload_start',uploadSuccess:'sts_upload_success'});
+  phone:'phone_click',uploadStart:'sts_upload_start'});
 function trackGoal(name) {
   if (!Object.values(GOALS).includes(name)) return;
   // Только имя события: без имени файла, содержимого СТС и контактов клиента.
@@ -374,12 +560,11 @@ document.querySelectorAll('[data-goal]').forEach(link=>{
 async function submitStsToServer() {
   throw new Error('Автоматическая отправка не подключена. Прикрепите СТС в мессенджере вручную.');
 }
-// GOALS.uploadSuccess зарезервирован: вызывать только после подтверждённой
+// sts_upload_success отсутствует в разрешённых целях: добавить только после подтверждённой
 // сервером доставки документа. Выбор файла и переход в мессенджер НЕ являются успехом.
 const fileInput=document.getElementById('stsFile');
 const uploadTitle=document.getElementById('uploadTitle');
 const uploadStatus=document.getElementById('uploadStatus');
-fileInput.addEventListener('click',()=>trackGoal(GOALS.uploadStart));
 fileInput.addEventListener('change',()=>{
   const file=fileInput.files[0];
   uploadTitle.textContent='Выбрать СТС';
@@ -394,17 +579,7 @@ fileInput.addEventListener('change',()=>{
   }
   uploadTitle.textContent='Выбрать другой СТС';
   uploadStatus.textContent='Выбран файл: '+file.name+'. Не отправлен — прикрепите его в Telegram или WhatsApp вручную.';
-});
-document.querySelectorAll('.faq-item button').forEach((btn,index)=>{
-  const item=btn.closest('.faq-item'),answer=item.querySelector('.faq-answer');
-  answer.id='faq-answer-'+index;
-  btn.type='button';btn.setAttribute('aria-controls',answer.id);
-  btn.setAttribute('aria-expanded','false');
-  btn.addEventListener('click',()=>{
-    const open=item.classList.toggle('open');
-    btn.setAttribute('aria-expanded',String(open));
-    btn.querySelector('span').textContent=open?'−':'+';
-  });
+  trackGoal(GOALS.uploadStart);
 });
 </script>
 </body>
