@@ -157,6 +157,51 @@ summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
 .trust-item{position:relative;padding-left:16px}
 .trust-item::before{content:"";position:absolute;left:0;top:24px;width:3px;height:34px;border-radius:3px;background:var(--blue)}
 @media(max-width:700px){.hero-copy::before{display:none}.upload-card{box-shadow:none}.trust-item{padding-left:12px}}
+/* Redesign A: service bar, recomposed hero, STS route panel, proof rail. */
+:root{--ink:#08111f;--ink-2:#0f172a;--muted:#5d6b82;--line:#dce4ee;--soft:#f4f7fb;--blue:#2563eb;--blue2:#1d4ed8;--green:#16a34a;--dark:#08111f}
+body{font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);letter-spacing:-.01em}
+.container{width:min(1240px,calc(100% - 48px))}
+.header{background:rgba(255,255,255,.97);border-bottom:1px solid rgba(220,228,238,.9);box-shadow:none}
+.header__inner{height:72px;gap:24px}.logo{font-size:24px;letter-spacing:-1.2px}
+.nav{gap:4px;padding:4px;background:var(--soft);border:1px solid #e8edf5;border-radius:12px}
+.nav a{padding:7px 9px;border-radius:8px;font-size:13px;font-weight:650;color:#46546b}.nav a:hover{background:#fff;color:var(--blue)}
+.btn{min-height:48px;padding:0 22px;border-radius:11px;font-weight:750;letter-spacing:-.01em}
+.btn-primary{background:var(--blue);box-shadow:0 10px 24px rgba(37,99,235,.2)}.btn-primary:hover{background:var(--blue2);box-shadow:0 14px 30px rgba(37,99,235,.24)}
+.btn-dark{background:var(--ink);color:#fff}.btn-outline{border-color:#c8d2e2;color:var(--ink);background:#fff}.btn-outline:hover{border-color:#9eb6e3;color:var(--blue)}
+.header-cta{min-height:44px;padding:0 18px;font-size:13px}
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:76px 0 48px;background:linear-gradient(180deg,#fff 0%,#f7f9fd 100%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background-image:linear-gradient(rgba(37,99,235,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,.04) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,#000,transparent 72%)}
+.hero::after{content:"";position:absolute;z-index:-1;width:620px;height:620px;right:-220px;top:-300px;border-radius:50%;background:rgba(37,99,235,.08)}
+.hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(420px,.9fr);gap:72px;align-items:center}.hero-copy::before{display:none}
+.eyebrow{margin-bottom:16px;font-size:11px;letter-spacing:1.7px;color:var(--blue)}
+.hero h1{max-width:720px;font-size:clamp(48px,4.7vw,64px);line-height:1;letter-spacing:-3.4px}.hero h1 .price-line{margin-top:14px;color:var(--blue);letter-spacing:-3px}
+.lead{max-width:610px;margin:24px 0 20px;font-size:18px;line-height:1.55;color:#46546b}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px}.hero-actions .btn{min-width:184px}
+.hero-proof{display:grid;grid-template-columns:repeat(3,1fr);max-width:650px;margin-bottom:18px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.78)}
+.hero-proof div{padding:13px 14px;border-right:1px solid var(--line)}.hero-proof div:last-child{border-right:0}.hero-proof strong,.hero-proof span{display:block}.hero-proof strong{font-size:13px}.hero-proof span{margin-top:2px;font-size:11px;color:var(--muted)}
+.benefits{grid-template-columns:1fr 1fr;gap:8px 16px;margin-bottom:0;font-size:14px;color:#334155}.benefits div{position:relative;padding-left:22px}.benefits div::first-letter{color:transparent;font-size:0}.benefits div::before{content:"";position:absolute;left:2px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(22,163,74,.1)}
+.hero-next{margin:16px 0 0;font-size:14px}.micro{font-size:12px}
+.upload-card{position:relative;padding:28px;background:var(--dark);border:1px solid #14213a;border-radius:28px;box-shadow:0 32px 80px rgba(8,17,31,.2)}
+.upload-card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(145deg,rgba(37,99,235,.14),transparent 48%)}.upload-card>*{position:relative;z-index:1}
+.panel-top{display:flex;align-items:center;justify-content:space-between;gap:16px}.panel-top .eyebrow{margin:0;color:#9bb9ff}.panel-top>span{padding:7px 9px;border:1px solid rgba(255,255,255,.16);border-radius:8px;color:#afbdd2;font-size:11px;font-weight:800;letter-spacing:.06em}
+.upload-card h2{margin:16px 0 0;color:#fff;font-size:32px;letter-spacing:-1px}.panel-lead{margin:4px 0 18px;color:#aebbd0;font-size:14px}
+.upload-zone{min-height:218px;padding:22px;background:#fff;border:1px solid #fff;border-radius:18px;box-shadow:inset 0 0 0 1px #e1e8f3}.upload-zone:hover{border-color:#fff;box-shadow:inset 0 0 0 2px var(--blue),0 16px 34px rgba(0,0,0,.18)}
+.upload-icon{width:54px;height:54px;border-radius:15px;background:var(--blue);color:#fff;box-shadow:0 12px 26px rgba(37,99,235,.28)}.upload-zone strong{font-size:20px}.upload-zone span{margin-top:4px}
+.application-route{display:grid;grid-template-columns:auto 1fr auto 1fr auto;align-items:center;gap:10px;margin:16px 0 12px}.application-route div{display:flex;align-items:center;gap:7px;color:#fff;font-size:12px}.application-route b{display:grid;place-items:center;width:28px;height:28px;border-radius:8px;background:#16243b;color:#9bb9ff;font-size:10px}.application-route i{height:1px;background:#31415d}
+.upload-card .upload-purpose,.upload-card .upload-ready>span{color:#aebbd0}.upload-card .upload-purpose{line-height:1.55}.upload-card .upload-status{color:#dbe6fb}
+.upload-ready .messenger-actions{gap:8px}.upload-ready .messenger-actions a{min-height:46px;padding:0 16px;border-color:#31415d;background:#111d32;color:#dce6f8}.upload-ready .messenger-actions a:first-child{background:var(--blue);border-color:var(--blue);color:#fff}
+.trust-grid{position:relative;z-index:2;overflow:hidden;grid-template-columns:repeat(4,1fr);margin-top:48px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 20px 55px rgba(15,23,42,.08)}
+.trust-item{min-height:108px;padding:25px 22px;border-right:1px solid var(--line)}.trust-item:last-child{border-right:0}.trust-item::before{display:none}.trust-item strong{font-size:22px}.trust-item span{margin-top:4px;font-size:13px}
+@media(max-width:1100px){.hero-grid{gap:40px}.hero h1{font-size:52px}.benefits{grid-template-columns:1fr}}
+@media(max-width:1000px){.hero{padding-top:52px}.hero-grid{grid-template-columns:1fr;gap:34px}.hero-copy,.upload-card{max-width:760px}}
+@media(max-width:700px){
+  .container{width:min(100% - 28px,1240px)}.header__inner{height:60px}.header .header-cta{display:inline-flex;min-height:44px;padding:0 15px}
+  .hero{padding:34px 0 28px}.hero-grid{gap:22px}.hero h1{font-size:38px;line-height:1.02;letter-spacing:-2.2px}.hero h1 .price-line{margin-top:9px;letter-spacing:-2px}.lead{margin:17px 0 15px;font-size:16px}
+  .hero-actions{display:grid;grid-template-columns:1fr;margin-bottom:14px}.hero-actions .btn{width:100%}.hero-proof{grid-template-columns:1fr 1fr;margin-bottom:14px}.hero-proof div{border-bottom:1px solid var(--line)}.hero-proof div:nth-child(2){border-right:0}.hero-proof div:last-child{grid-column:1/-1;border-bottom:0}
+  .benefits{gap:7px}.upload-card{padding:22px 18px 18px;border-radius:22px}.upload-card h2{font-size:28px}.upload-zone{min-height:170px}.application-route{gap:7px}.application-route div{gap:5px}.application-route b{width:26px;height:26px}
+  .trust-grid{margin-top:24px;border-radius:16px}.trust-item{min-height:96px;padding:20px 16px;border-bottom:1px solid var(--line)}.trust-item:nth-child(2){border-right:0}.trust-item:nth-last-child(-n+2){border-bottom:0}.trust-item strong{font-size:19px}.trust-item span{font-size:12px}
+}
+@media(max-width:420px){.header-cta{font-size:0;min-width:72px}.header-cta::after{content:"СТС";font-size:13px}.hero h1{font-size:36px}.application-route span{font-size:11px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}.btn:hover,.upload-zone:hover,.route-step:hover,.proof-card:hover{transform:none}}
 </style>
 </head>
@@ -168,7 +213,7 @@ summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
     <nav class="nav" aria-label="Основная навигация">
       <a href="#prices">Цены</a><a href="#process">Как работаем</a><a href="#fleet">Автопаркам</a><a href="#documents">Документы</a><a href="#proof">Доверие</a><a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-dark" href="#check">Проверить по СТС</a>
+    <a class="btn btn-dark header-cta" href="#check">Начать</a>
   </div>
 </header>
 
@@ -179,6 +224,15 @@ summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
       <div class="eyebrow">Грузовые пропуска · Москва</div>
       <h1>Пропуск на МКАД, ТТК и СК — <span class="price-line">8 000 ₽ под ключ</span></h1>
       <p class="lead">Для ИП и ООО. Оплата после оформления и проверки пропуска в реестре.</p>
+      <div class="hero-actions" data-messenger-container>
+        <a class="btn btn-primary" href="#check">Проверить по СТС</a>
+        <a class="btn btn-outline" data-messenger-link href="https://t.me/Mary_Romanova_tg" data-goal="telegram_click" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+      </div>
+      <div class="hero-proof" aria-label="Ключевые условия">
+        <div><strong>С 2014 года</strong><span>опыт оформления</span></div>
+        <div><strong>Постоплата</strong><span>после проверки</span></div>
+        <div><strong>10 рабочих дней</strong><span>с даты подачи</span></div>
+      </div>
       <div class="benefits">
         <div>✓ Временный пропуск включён</div>
         <div>✓ Рассмотрение годового — 10 рабочих дней с даты подачи</div>
@@ -189,8 +243,9 @@ summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
     </div>
 
     <div class="upload-card" id="check">
-      <div class="eyebrow">Первичная проверка</div>
-      <h2>Достаточно одного СТС</h2>
+      <div class="panel-top"><div class="eyebrow">Первичная проверка</div><span>Старт с СТС</span></div>
+      <h2>Маршрут заявки</h2>
+      <p class="panel-lead">Для начала достаточно одного СТС</p>
       <label class="upload-zone">
         <input type="file" aria-describedby="stsPurpose" id="stsFile" aria-label="Выбрать СТС на устройстве" accept=".jpg,.jpeg,.png,.pdf">
         <div class="upload-icon">＋</div>
@@ -199,6 +254,11 @@ summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
         <small>JPG, PNG или PDF · до 10 МБ</small>
       </label>
       <p id="uploadStatus" class="upload-status" role="status" aria-live="polite"></p>
+      <div class="application-route" aria-label="Этапы после передачи СТС">
+        <div><b>01</b><span>СТС</span></div><i aria-hidden="true"></i>
+        <div><b>02</b><span>Проверка</span></div><i aria-hidden="true"></i>
+        <div><b>03</b><span>Подача</span></div>
+      </div>
       <p class="upload-purpose" id="stsPurpose">Выбор файла необязателен. Можно сразу открыть мессенджер. Файл остаётся на вашем устройстве — прикрепите его в переписке вручную.</p>
       <div class="upload-ready" data-messenger-container>
         <span>Отправьте СТС в удобный мессенджер:</span>
