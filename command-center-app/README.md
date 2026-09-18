@@ -12,6 +12,19 @@ Version: `0.3.0` (`versionCode 4`)
 - adds AI Hub links for ChatGPT, Gemini and Claude;
 - caches the last successful feeds locally.
 
+## Command Center v2 protocol
+
+Operational source of truth is stored in `command-center-app/protocol/`:
+
+- `OPERATING_SYSTEM.md` — workflow, roles, statuses, priorities and approval rules;
+- `TASK_CARD.md` — mandatory task contract and Definition of Done;
+- `BUG_CARD.md` — mandatory detailed bug report and retest lifecycle;
+- `AGENT_SKILLS.md` — contracts for COMMANDER, DEV, SEO, RESEARCH, CONTENT, QA and LEADS;
+- `KNOWLEDGE_AND_LOGS.md` — knowledge structure and event log;
+- `KOSCHEI_AUTOMATION_RUNBOOK.md` — safe launch plan for the first Unity automation.
+
+Core rule: executor completion is not task completion. Only QA PASS plus required human approval can close work.
+
 ## Transport feeds
 The app reads only the dedicated branch `command-center-reports`:
 - `reports/command-center/team.json`
