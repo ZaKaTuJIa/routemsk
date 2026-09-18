@@ -30,16 +30,16 @@ assert.deepEqual(JSON.parse(JSON.stringify(enabled.calls)),[
  [112716166,'init',{defer:true,clickmap:false,trackLinks:false,webvisor:false,trackHash:false,ecommerce:false,sendTitle:false,accurateTrackBounce:true}],
  [112716166,'hit','https://routemsk.ru/',{referer:'',title:'ROUTE/MSK'}]
 ]);
-const expected=['telegram_click','whatsapp_click','phone_click','sts_upload_start'];
-enabled.links.forEach(l=>l.events.click());enabled.elements.stsFile.events.click();
-assert.deepEqual(enabled.calls.slice(2),expected.map(goal=>[112716166,'reachGoal',goal]));
+const clickGoals=['telegram_click','whatsapp_click','phone_click'];
+enabled.links.forEach(l=>l.events.click());
+assert.deepEqual(enabled.calls.slice(2),clickGoals.map(goal=>[112716166,'reachGoal',goal]));
 vm.runInContext("trackGoal('sts_upload_success');trackGoal('private.pdf');",enabled.context);
-assert.equal(enabled.calls.length,6);
+assert.equal(enabled.calls.length,5);
 for(const mode of ['queued','throws']){
- const blocked=setup(script,mode);blocked.links.forEach(l=>l.events.click());blocked.elements.stsFile.events.click();
+ const blocked=setup(script,mode);blocked.links.forEach(l=>l.events.click());
  blocked.elements.stsFile.files=[{name:'private.pdf',type:'application/pdf',size:20}];blocked.elements.stsFile.events.change();
  assert(blocked.elements.uploadStatus.textContent.includes('Не отправлен'));
- if(mode==='queued')assert.deepEqual(Array.from(blocked.window.ym.a,args=>Array.from(args)).slice(2),expected.map(goal=>[112716166,'reachGoal',goal]));
+ if(mode==='queued')assert.deepEqual(Array.from(blocked.window.ym.a,args=>Array.from(args)).slice(2),[...clickGoals,'sts_upload_start'].map(goal=>[112716166,'reachGoal',goal]));
 }
 const {elements}=enabled;
 for(const [file,ok] of [
@@ -57,4 +57,4 @@ assert.equal(enabled.calls.filter(c=>c[2]==='sts_upload_start').length,3,'Only t
 assert(html.includes('<meta name="referrer" content="no-referrer">'));
 assert(fs.readFileSync('yandex_a1a1feeff8ab616a.html','utf8').includes('Verification: a1a1feeff8ab616a'));
 assert(!fs.readFileSync('sitemap.xml','utf8').includes('yandex_'));
-console.log('PASS: SEO/assets/FAQ; official loader and real counter; minimal init/hit; four parameter-free goals; queued/blocked analytics; seven file cases and cancellation; no false success; Webmaster verification file.');
+console.log('PASS: SEO/assets/FAQ; official loader and real counter; minimal init/hit; click goals plus valid-selection upload start; queued/blocked analytics; seven file cases and cancellation; no false success; Webmaster verification file.');
