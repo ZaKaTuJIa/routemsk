@@ -3,9 +3,9 @@
   "agent": "ROUTEMSK Night Shift",
   "project": "ROUTEMSK",
   "state": "idle",
-  "current_task": "Next: audit remaining PR documentation and repository references",
-  "started_at": "2026-09-18T07:41:53+03:00",
-  "heartbeat_at": "2026-09-18T07:49:00+03:00",
-  "finished_at": "2026-09-18T07:49:00+03:00",
+  "current_task": "Next: separate automated release checks from owner/device gates, then audit remaining references",
+  "started_at": "2026-09-18T07:50:00+03:00",
+  "heartbeat_at": "2026-09-18T08:01:00+03:00",
+  "finished_at": "2026-09-18T08:01:00+03:00",
   "last_result": "progress"
 }
