@@ -19,7 +19,7 @@ main{padding:64px 0 90px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:
   <div class="container hero">
     <div class="eyebrow">Реестр грузовых пропусков · Москва</div>
     <h1>Проверить грузовой пропуск по госномеру</h1>
-    <p class="lead">Введите номер автомобиля. Покажем найденный пропуск, зону действия, срок и дату аннулирования, если она есть.</p>
+    <p class="lead">Введите номер автомобиля. Покажем найденный пропуск, зону действия, срок и дату аннулирования, если источник её возвращает.</p>
 
     <section class="checker">
       <div class="form-row">
@@ -51,7 +51,7 @@ main{padding:64px 0 90px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:
         </div>
       </section>
 
-      <div class="source">Источник данных: <a href="https://transport.mos.ru/gruzoviki/reestr" target="_blank" rel="noopener noreferrer">Единый транспортный портал Москвы</a>.</div>
+      <div class="source">Источник данных: <a href="https://transport.mos.ru/gruzoviki/reestr" target="_blank" rel="noopener noreferrer">Единый транспортный портал Москвы</a>. Технический доступ — через API Assist.</div>
       <details id="debug" class="debug" hidden><summary>Технический ответ</summary><pre id="debugJson"></pre></details>
     </section>
   </div>
@@ -69,7 +69,7 @@ function clearMessage(){$('message').className='message';$('message').textConten
 function findRecords(payload){
   if(Array.isArray(payload))return payload.filter(x=>x&&typeof x==='object');
   if(!payload||typeof payload!=='object')return [];
-  const priority=['data','items','result','results','rows','records','list'];
+  const priority=['records','data','items','result','results','rows','list'];
   for(const key of priority){if(Array.isArray(payload[key]))return payload[key].filter(x=>x&&typeof x==='object')}
   for(const value of Object.values(payload)){const found=findRecords(value);if(found.length)return found}
   return [];
@@ -95,16 +95,16 @@ function formatDate(value){
 }
 function text(value){return value===null||value===undefined||value===''?'—':String(value)}
 function renderRecord(record,plate){
-  const zone=getAny(record,['Zone','zone','PermitZone','Зона']);
+  const zone=getAny(record,['AllowedZona','allowedZona','Zone','zone','PermitZone','Зона']);
   const status=getAny(record,['Status','status','PermitStatus','Статус']);
-  const from=getAny(record,['Valid From','ValidFrom','validFrom','DateFrom','StartDate','Дата начала']);
-  const to=getAny(record,['Valid To','ValidTo','validTo','DateTo','EndDate','Дата окончания']);
-  const cancel=getAny(record,['Cancel Date','CancelDate','cancelDate','AnnulDate','CancellationDate','Дата аннулирования']);
+  const from=getAny(record,['StartDate','startDate','Valid From','ValidFrom','validFrom','DateFrom','Дата начала']);
+  const to=getAny(record,['EndDate','endDate','Valid To','ValidTo','validTo','DateTo','Дата окончания']);
+  const cancel=getAny(record,['CancellationDate','cancellationDate','Cancel Date','CancelDate','cancelDate','AnnulDate','Дата аннулирования']);
+  const licenseNumber=getAny(record,['LicenseNumber','licenseNumber','PermitNumber','Number','number','Номер']);
   const series=getAny(record,['Series','series','Серия']);
-  const number=getAny(record,['Number','number','PermitNumber','Номер']);
   $('resultPlate').textContent=plate;
-  $('zone').textContent=text(zone);$('status').textContent=text(status);$('validFrom').textContent=formatDate(from);$('validTo').textContent=formatDate(to);$('cancelDate').textContent=formatDate(cancel);$('permitNumber').textContent=[series,number].filter(Boolean).join(' ')||'—';
-  const st=String(status||'').toLowerCase();const cancelled=!!cancel||/аннул|отмен|недейств|cancel|invalid/.test(st);const active=/действ|active|valid/.test(st)&&!cancelled;
+  $('zone').textContent=text(zone);$('status').textContent=text(status);$('validFrom').textContent=formatDate(from);$('validTo').textContent=formatDate(to);$('cancelDate').textContent=formatDate(cancel);$('permitNumber').textContent=licenseNumber||([series].filter(Boolean).join(' ')||'—');
+  const st=String(status||'').toLowerCase();const cancelled=!!cancel||/аннул|отмен|недейств|cancel|invalid/.test(st);const active=/выдан|действ|active|valid/.test(st)&&!cancelled;
   const badge=$('statusBadge');badge.textContent=cancelled?'Аннулирован':active?'Действует':text(status);badge.className='badge '+(cancelled?'bad':active?'ok':'neutral');
   $('result').classList.add('show');
 }
