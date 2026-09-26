@@ -37,4 +37,14 @@ scripts/build-preview.cjs copies an explicit static allowlist, excluding server,
 ## Factual contradictions / SEO cannibalization / checker edge cases
 No contradictions found against supplied baseline; MKAD focuses on RMM/route/RNIS, TTK on payload/time restrictions, SK on central delivery/address validation. No extra landing pages. Multiple records, cancelled/expired/future dates and malformed responses covered. Date-only validity uses Moscow day boundaries. Unknown dates are never promoted from “Выдан” to active.
 
-GO: preview review after live URL verification. NO-GO: production until P0/P1 acceptance items are resolved. Live publication result will be recorded after deployment.
+## Live publication result
+- Live URL: https://routemsk.ru/preview-release/
+- RC commit: 362495e8219923c529af90a97016147b62ed8e87 (redesign-v1).
+- Preview commit: 32ee515b4f8a44b282397100bbe959b8c40a043b (main).
+- Live Chromium QA: all 32 page/viewport checks passed (1440, 768, 390×844, 360×800). No page errors or resource errors; navigation remained preview-only; every HTML page noindex and correct canonical.
+- Live preview checker called real Render API and displayed the expired record correctly; no horizontal overflow. Other status scenarios tested with controlled browser responses as listed above.
+- Real missing preview URL returns HTTP 404 with existing GitHub Pages error page, not the nested branded template; expected isolation limitation described above.
+- Git diff from original main 815d5d04658307e9b1996fb64cb2ddebb80e947f contains only preview-release/ paths. Production index.html blob before/after: b6332b4e989e247c2e55a0a4d1508ae91a3e9912. All other existing main files unchanged.
+- PR #10 remains open, draft, unmerged; no PR metadata changed.
+
+GO: live preview for user review. NO-GO: production until P0/P1 acceptance items are resolved.
