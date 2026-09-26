@@ -1,10 +1,11 @@
 {
   "name": "routemsk",
-  "version": "0.8.0",
+  "version": "1.0.0-rc.1",
   "private": true,
   "description": "ROUTEMSK permit lookup backend",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node tests/permit-core.cjs && node tests/backend.cjs"
   },
   "engines": {
     "node": ">=18"

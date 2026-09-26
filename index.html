@@ -4,199 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0B0C0E">
-<title>ROUTE/MSK — пропуска МКАД, ТТК и СК</title>
-<meta name="description" content="Оформление грузовых пропусков МКАД, ТТК и СК для ИП и ООО. Годовой — 8 000 ₽, временный — 1 500 ₽. Сопровождение с 2014 года.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="ru_RU">
-<meta property="og:site_name" content="ROUTE/MSK">
-<meta property="og:title" content="Пропуск на МКАД, ТТК и СК — 8 000 ₽ под ключ">
-<meta property="og:description" content="Для ИП и ООО. Годовой — 8 000 ₽, временный — 1 500 ₽. Постоплата годового после оформления и проверки.">
-<style>
-:root{
-  --bg-base:#0B0C0E;
-  --bg-surface:#141619;
-  --bg-surface-alt:#1B1E22;
-  --bg-elevated:#202329;
-  --bg-header:rgba(13,15,17,.82);
-  --gold-500:#C9A24B;
-  --gold-400:#D9B968;
-  --gold-600:#A9843A;
-  --gold-050:rgba(201,162,75,.10);
-  --blue-500:#4C7CDB;
-  --blue-050:rgba(76,124,219,.08);
-  --text-primary:#F5F6F7;
-  --text-secondary:#A7ADB5;
-  --text-muted:#6B7078;
-  --text-on-gold:#141619;
-  --border-subtle:#2A2E34;
-  --border-strong:#3A3F47;
-  --success:#4CAF7D;
-  --warning:#D9A441;
-  --error:#E5605A;
-  --radius-sm:8px;
-  --radius-md:12px;
-  --radius-lg:16px;
-  --radius-xl:24px;
-  --radius-pill:999px;
-  --shadow-sm:0 2px 8px rgba(0,0,0,.32);
-  --shadow-md:0 8px 24px rgba(0,0,0,.40);
-  --shadow-lg:0 16px 48px rgba(0,0,0,.48);
-  --shadow-gold-focus:0 0 0 3px rgba(201,162,75,.28);
-  --shadow-neutral-focus:0 0 0 3px rgba(245,246,247,.16);
-  --space-xs:4px;
-  --space-sm:8px;
-  --space-md:16px;
-  --space-lg:24px;
-  --space-xl:32px;
-  --space-2xl:64px;
-  --space-3xl:96px;
-  --space-4xl:128px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--bg-base)}
-body{margin:0;background:var(--bg-base);color:var(--text-primary);font-family:Manrope,"Segoe UI",Arial,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
-body.menu-open{overflow:hidden}
-a{color:inherit;text-decoration:none}
-button,input{font:inherit}
-button{color:inherit}
-img,svg{display:block;max-width:100%}
-.container{width:min(1200px,calc(100% - 128px));margin:0 auto}
-[id]{scroll-margin-top:88px}
-.kicker{display:inline-flex;align-items:center;gap:8px;min-height:32px;padding:5px 12px;border:1px solid rgba(201,162,75,.23);border-radius:var(--radius-pill);background:var(--gold-050);color:var(--gold-400);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-.kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold-500);box-shadow:0 0 0 4px rgba(201,162,75,.08)}
-.section{padding:var(--space-3xl) 0}
-.section.alt{background:var(--bg-surface)}
-.section-head{max-width:760px;margin-bottom:36px}
-.section-head h2{margin:0;font-size:clamp(32px,3.5vw,44px);line-height:1.1;letter-spacing:-1.5px}
-.section-head p{margin:14px 0 0;color:var(--text-secondary);font-size:17px}
-.eyebrow{color:var(--gold-500);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.muted{color:var(--text-secondary)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:52px;padding:0 26px;border-radius:var(--radius-md);border:1px solid transparent;font-weight:800;cursor:pointer;transition:transform .16s ease,background .16s ease,border-color .16s ease,color .16s ease,box-shadow .16s ease}
-.btn:hover{transform:translateY(-1px)}
-.btn:active{transform:none}
-.btn:focus-visible{outline:0;box-shadow:var(--shadow-gold-focus)}
-.btn-primary{background:var(--gold-500);color:var(--text-on-gold);box-shadow:var(--shadow-sm)}
-.btn-primary:hover{background:var(--gold-400);box-shadow:var(--shadow-md)}
-.btn-primary:active{background:var(--gold-600)}
-.btn-secondary{background:var(--bg-surface);border-color:var(--border-strong);color:var(--text-primary)}
-.btn-secondary:hover{background:var(--bg-surface-alt);border-color:#4A5059}
-.btn-outline-gold{background:transparent;border-color:var(--gold-500);color:var(--gold-400)}
-.btn-outline-gold:hover{background:var(--gold-050);border-color:var(--gold-400)}
-.btn[aria-disabled="true"],.btn:disabled{cursor:not-allowed;transform:none;background:var(--bg-surface-alt);color:var(--text-muted);border-color:var(--border-subtle);box-shadow:none}
-.icon{width:18px;height:18px;flex:0 0 18px}
-.header{position:sticky;top:0;z-index:100;height:72px;background:var(--bg-header);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-subtle);transition:height .18s ease,box-shadow .18s ease}
-.header.compact{height:64px;box-shadow:var(--shadow-sm)}
-.header-inner{height:100%;display:flex;align-items:center;gap:28px}
-.logo{font-size:22px;font-weight:900;letter-spacing:-.9px;white-space:nowrap}
-.logo .slash{color:var(--gold-500)}
-.nav{display:flex;gap:24px;margin-left:auto;align-items:center}
-.nav a{position:relative;padding:10px 0;color:var(--text-secondary);font-size:14px;font-weight:650}
-.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:4px;height:2px;background:var(--gold-500);transition:right .16s ease}
-.nav a:hover{color:var(--text-primary)}
-.nav a:hover::after{right:0}
-.nav a:focus-visible{outline:0;box-shadow:var(--shadow-neutral-focus);border-radius:6px}
-.header-cta{min-height:44px;padding:0 18px;font-size:14px}
-.menu-toggle{display:none;margin-left:auto;width:44px;height:44px;border:1px solid var(--border-subtle);border-radius:12px;background:var(--bg-surface);align-items:center;justify-content:center;cursor:pointer}
-.menu-toggle:focus-visible{outline:0;box-shadow:var(--shadow-neutral-focus)}
-.menu-lines,.menu-lines::before,.menu-lines::after{content:"";display:block;width:20px;height:2px;background:var(--text-primary);border-radius:2px;transition:.18s ease}
-.menu-lines{position:relative}.menu-lines::before{position:absolute;top:-6px}.menu-lines::after{position:absolute;top:6px}
-.menu-toggle[aria-expanded="true"] .menu-lines{background:transparent}
-.menu-toggle[aria-expanded="true"] .menu-lines::before{transform:translateY(6px) rotate(45deg)}
-.menu-toggle[aria-expanded="true"] .menu-lines::after{transform:translateY(-6px) rotate(-45deg)}
-.mobile-menu{position:fixed;inset:0;z-index:95;padding:96px 20px 28px;background:rgba(11,12,14,.98);backdrop-filter:blur(18px);display:none;flex-direction:column}
-.mobile-menu.open{display:flex}
-.mobile-menu nav{display:grid;gap:6px}
-.mobile-menu nav a{padding:14px 4px;border-bottom:1px solid var(--border-subtle);font-size:20px;font-weight:750}
-.mobile-menu-actions{margin-top:auto;display:grid;gap:12px}
-.hero{position:relative;overflow:hidden;padding:104px 0 40px;background:radial-gradient(circle at 72% 38%,rgba(201,162,75,.08),transparent 31%),linear-gradient(180deg,#0A0B0D 0%,var(--bg-base) 100%)}
-.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.55),transparent 82%)}
-.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.03fr) minmax(390px,.97fr);gap:56px;align-items:center}
-.hero-copy h1{margin:16px 0 0;font-size:clamp(44px,5vw,64px);line-height:1.02;letter-spacing:-2.6px;max-width:740px}
-.hero-copy h1 .price{display:block;color:var(--gold-400);margin-top:7px}
-.hero-lead{max-width:700px;margin:22px 0 0;color:var(--text-secondary);font-size:18px;line-height:1.65}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.hero-micro{display:flex;align-items:center;gap:9px;margin-top:16px;color:var(--text-secondary);font-size:13px}
-.hero-micro .dot{width:7px;height:7px;border-radius:50%;background:var(--gold-500);box-shadow:0 0 0 4px var(--gold-050)}
-.hero-visual{position:relative;min-height:500px;border-radius:28px;overflow:hidden;border:1px solid var(--border-subtle);background:linear-gradient(160deg,#15171B 0%,#0E0F12 58%,#090A0C 100%);box-shadow:var(--shadow-lg)}
-.hero-visual::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 50%,rgba(11,12,14,.15)),radial-gradient(circle at 65% 18%,rgba(201,162,75,.08),transparent 25%)}
-.route-signs{position:absolute;top:22px;left:22px;z-index:3;display:flex;gap:8px;flex-wrap:wrap}
-.route-signs span{padding:7px 10px;border:1px solid rgba(201,162,75,.3);border-radius:999px;background:rgba(11,12,14,.76);color:var(--gold-400);font-size:11px;font-weight:850;letter-spacing:.08em}
-.hero-scene{position:absolute;inset:0;width:100%;height:100%}
-.trust-strip{position:relative;background:var(--bg-surface);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)}
-.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-.trust-item{display:flex;align-items:center;gap:14px;min-height:100px;padding:20px 24px;border-right:1px solid var(--border-subtle)}
-.trust-item:first-child{padding-left:0}.trust-item:last-child{border-right:0;padding-right:0}
-.trust-icon{width:38px;height:38px;border:1px solid rgba(201,162,75,.22);border-radius:12px;background:var(--gold-050);display:grid;place-items:center;color:var(--gold-500);font-weight:900;flex:0 0 38px}
-.trust-item strong{display:block;font-size:15px}.trust-item span{display:block;margin-top:2px;color:var(--text-muted);font-size:12px}
-.checker-card{display:grid;grid-template-columns:.78fr 1.22fr;gap:38px;padding:34px;border:1px solid var(--border-subtle);border-radius:var(--radius-xl);background:linear-gradient(145deg,var(--bg-surface),var(--bg-elevated));box-shadow:var(--shadow-sm)}
-.checker-copy h2{margin:12px 0 12px;font-size:34px;line-height:1.1;letter-spacing:-1px}
-.checker-copy p{margin:0;color:var(--text-secondary)}
-.status-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:var(--radius-pill);background:var(--blue-050);color:var(--blue-500);font-size:12px;font-weight:800}
-.status-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue-500)}
-.checker-form{align-self:center;padding:22px;border:1px solid var(--border-subtle);border-radius:var(--radius-lg);background:rgba(11,12,14,.42)}
-.field-label{display:block;margin-bottom:8px;color:var(--text-secondary);font-size:13px;font-weight:700}
-.input{width:100%;height:52px;border:1px solid var(--border-subtle);border-radius:var(--radius-md);background:var(--bg-elevated);color:var(--text-primary);padding:0 16px;outline:0;text-transform:uppercase;font-weight:800;letter-spacing:.06em}
-.input:focus{border-color:var(--gold-500);box-shadow:var(--shadow-gold-focus)}
-.input:disabled{color:var(--text-muted);background:var(--bg-surface)}
-.checker-actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
-.checker-note{margin:12px 0 0;color:var(--text-muted);font-size:12px}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.step{position:relative;padding:24px;border:1px solid var(--border-subtle);border-radius:var(--radius-lg);background:var(--bg-surface)}
-.step-num{width:42px;height:42px;border:1px solid rgba(201,162,75,.28);border-radius:12px;background:var(--gold-050);display:grid;place-items:center;color:var(--gold-400);font-weight:900}
-.step h3{margin:18px 0 8px;font-size:18px}.step p{margin:0;color:var(--text-secondary);font-size:14px}
-.pricing{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.price-card{position:relative;padding:30px;border:1px solid var(--border-subtle);border-radius:var(--radius-xl);background:var(--bg-surface);box-shadow:var(--shadow-sm)}
-.price-card.featured{border-color:var(--gold-500)}
-.price-badge{display:inline-flex;padding:6px 10px;border:1px solid rgba(201,162,75,.22);border-radius:var(--radius-pill);background:var(--gold-050);color:var(--gold-400);font-size:12px;font-weight:800}
-.price-card h3{margin:18px 0 0;font-size:24px}.price-value{margin:12px 0 0;color:var(--gold-400);font-size:44px;font-weight:900;letter-spacing:-1.8px;font-variant-numeric:tabular-nums}.price-meta{margin-top:2px;color:var(--text-muted);font-size:13px}
-.feature-list{list-style:none;padding:0;margin:24px 0;display:grid;gap:11px}.feature-list li{position:relative;padding-left:26px;color:var(--text-secondary);font-size:14px}.feature-list li::before{content:"";position:absolute;left:1px;top:.58em;width:7px;height:7px;border:2px solid var(--gold-500);border-radius:2px;transform:rotate(45deg)}
-.price-actions{display:flex;gap:10px;flex-wrap:wrap}
-.docs-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px}
-.docs-card{padding:28px;border:1px solid var(--border-subtle);border-radius:var(--radius-xl);background:var(--bg-surface)}
-.docs-card h3{margin:0 0 10px;font-size:24px}.docs-card p{color:var(--text-secondary)}
-.doc-tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}.doc-tag{display:inline-flex;align-items:center;gap:8px;min-height:38px;padding:0 12px;border:1px solid var(--border-subtle);border-radius:10px;background:var(--bg-surface-alt);color:var(--text-secondary);font-size:13px}
-.doc-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold-500)}
-.fleet-block{display:grid;grid-template-columns:1.05fr .95fr;gap:42px;align-items:center;padding:42px;border:1px solid var(--border-subtle);border-radius:28px;background:linear-gradient(135deg,var(--bg-surface-alt),var(--bg-surface))}
-.fleet-copy h2{margin:12px 0 14px;font-size:40px;line-height:1.08;letter-spacing:-1.3px}.fleet-copy p{color:var(--text-secondary)}
-.fleet-points{display:grid;gap:12px}.fleet-point{display:flex;gap:14px;padding:17px;border:1px solid var(--border-subtle);border-radius:14px;background:rgba(11,12,14,.35)}.fleet-point strong{display:block;font-size:14px}.fleet-point span{display:block;margin-top:3px;color:var(--text-muted);font-size:12px}.fleet-point .num{color:var(--gold-400);font-weight:900;min-width:24px}
-.support-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.support-card{padding:26px;border:1px solid var(--border-subtle);border-radius:var(--radius-lg);background:var(--bg-surface)}.support-card .mini-icon{width:38px;height:38px;border-radius:12px;background:var(--gold-050);border:1px solid rgba(201,162,75,.2);display:grid;place-items:center;color:var(--gold-500);font-weight:900}.support-card h3{margin:16px 0 8px;font-size:18px}.support-card p{margin:0;color:var(--text-secondary);font-size:14px}
-.faq-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:44px}.faq-side h2{margin:12px 0 14px;font-size:40px;line-height:1.08}.faq-side p{color:var(--text-secondary)}
-.faq-list{border-top:1px solid var(--border-subtle)}.faq-item{border-bottom:1px solid var(--border-subtle)}.faq-q{width:100%;padding:19px 0;border:0;background:none;display:flex;align-items:center;justify-content:space-between;gap:20px;text-align:left;font-weight:800;cursor:pointer}.faq-q:focus-visible{outline:0;box-shadow:var(--shadow-neutral-focus);border-radius:8px}.faq-symbol{width:28px;height:28px;border:1px solid var(--border-subtle);border-radius:8px;display:grid;place-items:center;color:var(--gold-500);flex:0 0 28px}.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .2s ease}.faq-a>div{overflow:hidden}.faq-a p{margin:0;padding:0 42px 18px 0;color:var(--text-secondary);font-size:14px}.faq-item.open .faq-a{grid-template-rows:1fr}.faq-item.open .faq-symbol{background:var(--gold-050);border-color:rgba(201,162,75,.24)}
-.final-cta{padding:60px 0;background:linear-gradient(140deg,var(--bg-elevated),var(--bg-surface));border-top:1px solid rgba(201,162,75,.2);border-bottom:1px solid rgba(201,162,75,.2)}
-.final-inner{display:flex;align-items:center;justify-content:space-between;gap:36px}.final-copy h2{margin:0;font-size:38px;line-height:1.08;letter-spacing:-1.2px}.final-copy p{margin:10px 0 0;color:var(--text-secondary)}.final-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-.footer{padding:50px 0 90px;background:#08090B}.footer-grid{display:grid;grid-template-columns:1.15fr .8fr .8fr 1fr;gap:32px}.footer-title{margin:0 0 12px;font-size:13px;color:var(--text-primary);font-weight:850}.footer p,.footer a,.footer span{color:var(--text-muted);font-size:13px}.footer a{display:block;margin:7px 0}.footer a:hover{color:var(--gold-400)}.footer-brand .logo{display:inline-block;margin-bottom:12px}.footer-legal{margin-top:28px;padding-top:20px;border-top:1px solid var(--border-subtle);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--text-muted);font-size:12px}.dev-legal{color:var(--warning)!important}
-.sticky-cta{position:fixed;left:12px;right:12px;bottom:12px;z-index:80;display:none;padding:8px;border:1px solid var(--border-subtle);border-radius:16px;background:rgba(32,35,41,.92);backdrop-filter:blur(14px);box-shadow:0 -10px 30px rgba(0,0,0,.38)}.sticky-cta.visible{display:block}.sticky-cta .btn{width:100%}
-@media(max-width:1100px){
-  .container{width:min(100% - 64px,1200px)}
-  .hero-grid{grid-template-columns:1fr .9fr;gap:34px}.hero-copy h1{font-size:52px}.hero-visual{min-height:440px}
-  .nav{gap:16px}.nav a{font-size:13px}.header-cta{display:none}
-  .checker-card,.docs-grid,.fleet-block,.faq-layout{grid-template-columns:1fr}
-  .support-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:767px){
-  .container{width:min(100% - 32px,1200px)}
-  [id]{scroll-margin-top:74px}
-  .header{height:60px}.header.compact{height:60px}.nav,.header-cta{display:none}.menu-toggle{display:flex}
-  .hero{padding:54px 0 28px}.hero-grid{grid-template-columns:1fr;gap:26px}.hero-copy h1{font-size:32px;line-height:1.08;letter-spacing:-1.4px}.hero-lead{font-size:15px;line-height:1.55;margin-top:16px}.hero-actions{display:grid;gap:10px;margin-top:22px}.hero-actions .btn{width:100%}.hero-micro{font-size:12px}
-  .hero-visual{min-height:250px;border-radius:20px}.route-signs{top:14px;left:14px}.route-signs span{font-size:9px;padding:5px 8px}
-  .trust-grid{grid-template-columns:repeat(2,1fr);gap:0}.trust-item{min-height:118px;padding:20px 14px;border-right:0;border-bottom:1px solid var(--border-subtle);align-items:flex-start;flex-direction:column;gap:10px}.trust-item:first-child{padding-left:14px}.trust-item:nth-last-child(-n+2){border-bottom:0}
-  .section{padding:64px 0}.section-head{margin-bottom:28px}.section-head h2{font-size:26px}.section-head p{font-size:15px}
-  .checker-card{padding:20px;gap:22px}.checker-copy h2{font-size:26px}.checker-form{padding:16px}.checker-actions{display:grid}.checker-actions .btn{width:100%}
-  .steps{display:grid;grid-template-columns:1fr;gap:12px}.step{padding:20px;display:grid;grid-template-columns:42px 1fr;column-gap:16px;align-items:start}.step h3{margin:1px 0 5px}.step p{grid-column:2}
-  .pricing{grid-template-columns:1fr}.price-card{padding:24px}.price-card.featured{order:-1}.price-value{font-size:38px}.price-actions{display:grid}.price-actions .btn{width:100%}
-  .docs-grid{gap:14px}.docs-card{padding:22px}.fleet-block{padding:24px;gap:26px}.fleet-copy h2{font-size:28px}.fleet-copy .btn{width:100%}
-  .support-grid{grid-template-columns:1fr}.support-card{padding:22px}
-  .faq-layout{gap:28px}.faq-side h2{font-size:28px}.faq-q{font-size:15px}.faq-a p{padding-right:0}
-  .final-inner{display:grid}.final-copy h2{font-size:28px}.final-actions{display:grid;justify-content:stretch}.final-actions .btn{width:100%}
-  .footer{padding-bottom:100px}.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.footer-legal{display:block}.footer-legal span{display:block;margin:7px 0}
-}
-@media(max-width:420px){
-  .container{width:calc(100% - 28px)}.trust-grid{grid-template-columns:1fr 1fr}.trust-item{padding:16px 10px;min-height:116px}.trust-item strong{font-size:13px}.trust-item span{font-size:11px}.footer-grid{grid-template-columns:1fr}.footer-brand{grid-column:auto}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
-</style>
+<title>Пропуска МКАД, ТТК и СК — сопровождение | ROUTEMSK</title><meta name="description" content="Помощь в оформлении грузовых пропусков в Москве. Сопровождение годового — 8 000 ₽, временного — 1 500 ₽. Проверка пропуска по госномеру."><link rel="canonical" href="https://routemsk.ru/"><meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:site_name" content="ROUTE/MSK"><meta property="og:title" content="Пропуска МКАД, ТТК и СК — сопровождение | ROUTEMSK"><meta property="og:description" content="Помощь в оформлении грузовых пропусков в Москве. Сопровождение годового — 8 000 ₽, временного — 1 500 ₽. Проверка пропуска по госномеру."><meta property="og:url" content="https://routemsk.ru/"><link rel="stylesheet" href="/assets/site.css"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://routemsk.ru/","url":"https://routemsk.ru/","name":"Пропуска МКАД, ТТК и СК","inLanguage":"ru-RU"}]}</script>
 </head>
-<body>
+<body><a class="skip" href="#top">К содержимому</a>
 <header class="header" id="siteHeader">
   <div class="container header-inner">
     <a class="logo" href="#top" aria-label="ROUTE/MSK — на главную">ROUTE<span class="slash">/</span>MSK</a>
@@ -225,18 +35,19 @@ img,svg{display:block;max-width:100%}
   <div class="container hero-grid">
     <div class="hero-copy">
       <span class="kicker">Пропуска МКАД · ТТК · СК</span>
-      <h1>Пропуск на МКАД, ТТК и СК <span class="price">— 8 000 ₽ под ключ</span></h1>
+      <h1>Пропуск на МКАД, ТТК и СК <span class="price">— сопровождение 8 000 ₽</span></h1>
       <p class="hero-lead">Оформление для ИП и ООО. Годовой пропуск — с постоплатой после оформления и проверки в реестре. Сопровождаем клиента от документов до результата.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://t.me/Mary_Romanova_tg" target="_blank" rel="noopener noreferrer" data-event="telegram_click">
           <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 3 9.8 13.2M21 3l-7.1 18-4.1-7.8L3 9.7 21 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Написать специалисту
         </a>
-        <a class="btn btn-secondary" href="#permit-check">Проверить пропуск</a>
+        <a class="btn btn-secondary" href="/check/">Проверить пропуск</a>
       </div>
-      <div class="hero-micro"><span class="dot"></span><span>Годовой: оплата после оформления и проверки · Временный: 1 500 ₽</span></div>
+      <nav class="zone-links" aria-label="Зоны пропусков"><a href="/propusk-mkad/">МКАД</a><a href="/propusk-ttk/">ТТК</a><a href="/propusk-sk/">СК</a><a href="/check/">Проверить пропуск</a></nav><p class="disclaimer">Государственная услуга по внесению сведений в реестр предоставляется уполномоченным органом бесплатно. Стоимость ROUTEMSK — консультационное, документарное и представительское сопровождение.</p><div class="hero-micro"><span class="dot"></span><span>Годовой: оплата после оформления и проверки · Временный: 1 500 ₽</span></div>
     </div>
-    <div class="hero-visual" aria-label="Грузовой автомобиль на ночной московской дороге">
+    <!-- TODO production blocker: replace current night-road/truck SVG with approved final hero photo. -->
+<div class="hero-visual" aria-label="Грузовой автомобиль на ночной московской дороге">
       <div class="route-signs" aria-hidden="true"><span>МКАД</span><span>ТТК</span><span>СК</span></div>
       <svg class="hero-scene" viewBox="0 0 620 520" role="img" aria-label="Ночная дорога, Москва и грузовой автомобиль">
         <defs>
@@ -277,30 +88,13 @@ img,svg{display:block;max-width:100%}
 </section>
 <section class="trust-strip" aria-label="Почему ROUTE/MSK">
   <div class="container trust-grid">
-    <div class="trust-item"><div class="trust-icon">14</div><div><strong>С 2014 года</strong><span>Опыт оформления пропусков</span></div></div>
+    <div class="trust-item"><div class="trust-icon">↗</div><div><strong>МКАД · ТТК · СК</strong><span>Подбор зоны по маршруту</span></div></div>
     <div class="trust-item"><div class="trust-icon">₽</div><div><strong>Постоплата</strong><span>Годовой — после проверки</span></div></div>
     <div class="trust-item"><div class="trust-icon">✓</div><div><strong>Сопровождение</strong><span>От документов до результата</span></div></div>
     <div class="trust-item"><div class="trust-icon">∞</div><div><strong>Автопарки</strong><span>Работаем с несколькими ТС</span></div></div>
   </div>
 </section>
-<section class="section" id="permit-check">
-  <div class="container checker-card">
-    <div class="checker-copy">
-      <span class="status-badge">Проверка запускается</span>
-      <h2>Проверить пропуск по госномеру</h2>
-      <p>Подключаем автоматическую проверку статуса, зоны и срока действия. Пока сервис не активирован, специалист проверит пропуск вручную.</p>
-    </div>
-    <div class="checker-form">
-      <label class="field-label" for="plate">Госномер автомобиля</label>
-      <input class="input" id="plate" type="text" placeholder="А123АА777" disabled aria-describedby="checkNote">
-      <div class="checker-actions">
-        <button class="btn btn-secondary" type="button" disabled>Проверить</button>
-        <a class="btn btn-primary" href="https://t.me/Mary_Romanova_tg" target="_blank" rel="noopener noreferrer" data-event="telegram_click">Проверить у специалиста</a>
-      </div>
-      <p class="checker-note" id="checkNote">Автоматическая проверка будет включена после подключения API без изменения интерфейса.</p>
-    </div>
-  </div>
-</section>
+<section class="section" id="permit-check"><div class="container checker-card"><div class="checker-copy"><span class="status-badge">Онлайн-проверка</span><h2>Проверьте пропуск перед рейсом</h2><p>Госномер, зона, период действия и аннулирование — в одном результате. При нескольких актуальных записях сообщим об этом отдельно.</p></div><div><p>Результат отражает данные источника на момент запроса. Учитывайте зону и режим поездки.</p><a class="btn btn-primary" href="/check/">Проверить пропуск</a></div></div></section>
 <section class="section alt" id="process">
   <div class="container">
     <div class="section-head"><span class="eyebrow">Процесс</span><h2>Как проходит оформление</h2><p>Короткий маршрут без длинных форм и лишних действий.</p></div>
@@ -320,16 +114,16 @@ img,svg{display:block;max-width:100%}
         <span class="price-badge">Основной тариф</span>
         <h3>Годовой пропуск</h3>
         <div class="price-value">8 000 ₽</div>
-        <div class="price-meta">под ключ · рассмотрение — 10 рабочих дней</div>
-        <ul class="feature-list"><li>Оформление на МКАД / ТТК / СК</li><li>Временный пропуск включён в оформление годового</li><li>Постоплата после оформления и проверки</li><li>Повторная подача при отказе без доплаты в рамках услуги</li></ul>
+        <div class="price-meta">сопровождение · до 10 рабочих дней</div>
+        <ul class="feature-list"><li>Оформление на МКАД / ТТК / СК</li><li>Проверка комплекта документов</li><li>Постоплата после оформления и проверки</li><li>Разбор замечаний при отказе</li></ul>
         <div class="price-actions"><a class="btn btn-primary" href="https://t.me/Mary_Romanova_tg" target="_blank" rel="noopener noreferrer" data-event="annual_permit_click">Оформить годовой</a><a class="btn btn-secondary" href="https://wa.me/79687135343" target="_blank" rel="noopener noreferrer" data-event="whatsapp_click">WhatsApp</a></div>
       </article>
       <article class="price-card">
         <span class="price-badge">Быстрый вариант</span>
         <h3>Временный пропуск</h3>
         <div class="price-value">1 500 ₽</div>
-        <div class="price-meta">отдельно · действует до 10 дней</div>
-        <ul class="feature-list"><li>Для срочного въезда в зону ограничений</li><li>Оформляется отдельно или входит в годовое оформление</li><li>Специалист проверит документы перед подачей</li><li>Подходит как временное решение до годового</li></ul>
+        <div class="price-meta">сопровождение · действует до 10 суток</div>
+        <ul class="feature-list"><li>Для срочного въезда в зону ограничений</li><li>Рассмотрение — не более 8 рабочих часов</li><li>Специалист проверит документы перед подачей</li><li>Подходит как временное решение до годового</li></ul>
         <div class="price-actions"><a class="btn btn-primary" href="https://t.me/Mary_Romanova_tg" target="_blank" rel="noopener noreferrer" data-event="temporary_permit_click">Оформить временный</a><a class="btn btn-secondary" href="https://wa.me/79687135343" target="_blank" rel="noopener noreferrer" data-event="whatsapp_click">WhatsApp</a></div>
       </article>
     </div>
@@ -347,24 +141,24 @@ img,svg{display:block;max-width:100%}
 <section class="section" id="fleet">
   <div class="container fleet-block">
     <div class="fleet-copy"><span class="eyebrow">B2B</span><h2>Работаем с автопарками</h2><p>Если машин несколько, не нужно проходить один и тот же путь по каждой с нуля. Собираем исходные данные, согласуем порядок и ведём оформление списком.</p><a class="btn btn-outline-gold" href="https://t.me/Mary_Romanova_tg" target="_blank" rel="noopener noreferrer" data-event="fleet_click">Обсудить автопарк</a></div>
-    <div class="fleet-points"><div class="fleet-point"><div class="num">01</div><div><strong>От 4 автомобилей</strong><span>Предусмотрена скидка 10% на оформление.</span></div></div><div class="fleet-point"><div class="num">02</div><div><strong>До 100 автомобилей</strong><span>Есть практический опыт работы с крупным списком ТС.</span></div></div><div class="fleet-point"><div class="num">03</div><div><strong>Один канал связи</strong><span>Статусы и вопросы не размазываются по десяткам переписок.</span></div></div></div>
+    <div class="fleet-points"><div class="fleet-point"><div class="num">01</div><div><strong>Несколько автомобилей</strong><span>Условия сопровождения согласуем до начала работы.</span></div></div><div class="fleet-point"><div class="num">02</div><div><strong>Общий список задач</strong><span>Помогаем организовать документы по каждому автомобилю.</span></div></div><div class="fleet-point"><div class="num">03</div><div><strong>Один канал связи</strong><span>Статусы и вопросы не размазываются по десяткам переписок.</span></div></div></div>
   </div>
 </section>
 <section class="section alt" id="support">
   <div class="container">
     <div class="section-head"><span class="eyebrow">Сопровождение</span><h2>Не просто «подали и пропали»</h2><p>В услуге важен не только сам факт подачи, но и понятный путь клиента.</p></div>
-    <div class="support-grid"><article class="support-card"><div class="mini-icon">1</div><h3>Проверка до подачи</h3><p>Сначала смотрим исходные документы и маршруты, затем определяем, чего не хватает.</p></article><article class="support-card"><div class="mini-icon">2</div><h3>Связь по статусу</h3><p>Поясняем, на каком этапе находится оформление и что нужно от клиента.</p></article><article class="support-card"><div class="mini-icon">3</div><h3>Повторная подача</h3><p>Если получен отказ, повторная подача в рамках услуги не оплачивается отдельно.</p></article></div>
+    <div class="support-grid"><article class="support-card"><div class="mini-icon">1</div><h3>Проверка до подачи</h3><p>Сначала смотрим исходные документы и маршруты, затем определяем, чего не хватает.</p></article><article class="support-card"><div class="mini-icon">2</div><h3>Связь по статусу</h3><p>Поясняем, на каком этапе находится оформление и что нужно от клиента.</p></article><article class="support-card"><div class="mini-icon">3</div><h3>Повторная подача</h3><p>Если получен отказ, разбираем замечания и согласуем дальнейшие действия.</p></article></div>
   </div>
 </section>
 <section class="section" id="faq">
   <div class="container faq-layout">
     <div class="faq-side"><div><span class="eyebrow">FAQ</span><h2>Частые вопросы</h2><p>Коротко о цене, сроках и документах. Если ситуация нестандартная — проще сразу написать специалисту.</p></div><a class="btn btn-outline-gold" href="https://t.me/Mary_Romanova_tg" target="_blank" rel="noopener noreferrer" data-event="telegram_click">Задать свой вопрос</a></div>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Сколько стоит оформление?</span><span class="faq-symbol">+</span></button><div class="faq-a"><div><p>Годовой пропуск — 8 000 ₽ под ключ. Временный — 1 500 ₽ отдельно. При оформлении годового временный пропуск входит в услугу.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Сколько стоит оформление?</span><span class="faq-symbol">+</span></button><div class="faq-a"><div><p>Сопровождение годового — 8 000 ₽, временного — 1 500 ₽. Государственная услуга бесплатна. Решение принимает уполномоченный орган.</p></div></div></div>
       <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Когда оплачивается годовой пропуск?</span><span class="faq-symbol">+</span></button><div class="faq-a"><div><p>После оформления и проверки пропуска в реестре.</p></div></div></div>
       <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Сколько рассматривается годовой пропуск?</span><span class="faq-symbol">+</span></button><div class="faq-a"><div><p>Ориентир по рассмотрению — 10 рабочих дней с момента подачи полного комплекта.</p></div></div></div>
       <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Что нужно для начала?</span><span class="faq-symbol">+</span></button><div class="faq-a"><div><p>Напишите специалисту. Обычно начинаем со СТС, диагностической карты, водительского удостоверения, данных собственника и адресов перевозок.</p></div></div></div>
-      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Работаете с автопарками?</span><span class="faq-symbol">+</span></button><div class="faq-a"><div><p>Да. Можно передать список автомобилей и согласовать единый порядок оформления. От 4 автомобилей предусмотрена скидка 10%.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" type="button" aria-expanded="false"><span>Работаете с автопарками?</span><span class="faq-symbol">+</span></button><div class="faq-a"><div><p>Да. Можно передать список автомобилей и согласовать единый порядок оформления. Условия согласуются до начала работы.</p></div></div></div>
     </div>
   </div>
 </section>
@@ -372,29 +166,7 @@ img,svg{display:block;max-width:100%}
   <div class="container final-inner"><div class="final-copy"><h2>Нужен пропуск на МКАД, ТТК или СК?</h2><p>Напишите специалисту — определим, что нужно подготовить именно для вашего автомобиля и маршрута.</p></div><div class="final-actions"><a class="btn btn-primary" href="https://t.me/Mary_Romanova_tg" target="_blank" rel="noopener noreferrer" data-event="telegram_click">Telegram</a><a class="btn btn-secondary" href="https://wa.me/79687135343" target="_blank" rel="noopener noreferrer" data-event="whatsapp_click">WhatsApp</a></div></div>
 </section>
 </main>
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid"><div class="footer-brand"><a class="logo" href="#top">ROUTE<span class="slash">/</span>MSK</a><p>Оформление грузовых пропусков МКАД, ТТК и СК для ИП и ООО.</p></div><div><h3 class="footer-title">Разделы</h3><a href="#prices">Тарифы</a><a href="#process">Как работаем</a><a href="#documents">Документы</a><a href="#faq">FAQ</a></div><div><h3 class="footer-title">Связь</h3><a href="https://t.me/Mary_Romanova_tg" target="_blank" rel="noopener noreferrer" data-event="telegram_click">Telegram</a><a href="https://wa.me/79687135343" target="_blank" rel="noopener noreferrer" data-event="whatsapp_click">WhatsApp</a><a href="tel:+79687135343" data-event="phone_click">+7 968 713-53-43</a></div><div><h3 class="footer-title">Юридическая информация</h3><span class="dev-legal">DEV: реквизиты, политика и согласие обязательны до merge в production.</span></div></div>
-    <div class="footer-legal"><span>© ROUTE/MSK</span><span>Москва и Московская область</span><span class="dev-legal">Production launch blocked until legal pages are added.</span></div>
-  </div>
-</footer>
-<div class="sticky-cta" id="stickyCta" aria-hidden="true"><a class="btn btn-primary" href="https://t.me/Mary_Romanova_tg" target="_blank" rel="noopener noreferrer" data-event="telegram_click">Написать специалисту</a></div>
-<script>
-'use strict';
-const header=document.getElementById('siteHeader');
-const hero=document.getElementById('hero');
-const stickyCta=document.getElementById('stickyCta');
-const menuToggle=document.getElementById('menuToggle');
-const mobileMenu=document.getElementById('mobileMenu');
-function setMenu(open){menuToggle.setAttribute('aria-expanded',String(open));mobileMenu.classList.toggle('open',open);mobileMenu.setAttribute('aria-hidden',String(!open));document.body.classList.toggle('menu-open',open);stickyCta.classList.remove('visible');stickyCta.setAttribute('aria-hidden','true')}
-menuToggle.addEventListener('click',()=>setMenu(menuToggle.getAttribute('aria-expanded')!=='true'));
-mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
-window.addEventListener('scroll',()=>header.classList.toggle('compact',window.scrollY>40),{passive:true});
-const heroObserver=new IntersectionObserver(entries=>{const heroVisible=entries[0].isIntersecting;const mobile=window.matchMedia('(max-width:767px)').matches;const menuOpen=menuToggle.getAttribute('aria-expanded')==='true';const show=!heroVisible&&mobile&&!menuOpen;stickyCta.classList.toggle('visible',show);stickyCta.setAttribute('aria-hidden',String(!show));},{threshold:.05});
-heroObserver.observe(hero);
-document.querySelectorAll('.faq-q').forEach(button=>button.addEventListener('click',()=>{const item=button.closest('.faq-item');const open=!item.classList.contains('open');item.classList.toggle('open',open);button.setAttribute('aria-expanded',String(open));button.querySelector('.faq-symbol').textContent=open?'−':'+';}));
-function track(eventName){if(window.ym&&window.ROUTEMSK_METRIKA_ID){window.ym(window.ROUTEMSK_METRIKA_ID,'reachGoal',eventName)}}
-document.querySelectorAll('[data-event]').forEach(el=>el.addEventListener('click',()=>track(el.dataset.event)));
-</script>
+<footer class="footer"><div class="container"><div class="footer-grid"><div><a class="logo" href="/">ROUTE<span class="slash">/</span>MSK</a><p>Помощь с грузовыми пропусками в Москве.</p></div><div><h2 class="footer-title">Маршруты</h2><a href="/propusk-mkad/">МКАД</a><a href="/propusk-ttk/">ТТК</a><a href="/propusk-sk/">СК</a><a href="/check/">Проверить пропуск</a></div><div><h2 class="footer-title">Связь</h2><a href="https://t.me/Mary_Romanova_tg" data-event="telegram_click">Telegram</a><a href="https://wa.me/79687135343" data-event="whatsapp_click">WhatsApp</a><a href="tel:+79687135343" data-event="phone_click">+7 968 713-53-43</a></div><div><h2 class="footer-title">Документы</h2><a href="/politika-konfidencialnosti/">Политика конфиденциальности</a><a href="/soglasie/">Согласие на обработку данных</a><p class="dev-legal">Юридические документы — черновики до заполнения данных оператора.</p></div></div><div class="footer-legal"><p>Государственная услуга по внесению сведений в реестр предоставляется уполномоченным органом бесплатно. Стоимость ROUTEMSK — консультационное, документарное и представительское сопровождение.</p><span>© ROUTE/MSK</span></div></div></footer>
+<script src="/assets/site.js" defer></script>
 </body>
 </html>
