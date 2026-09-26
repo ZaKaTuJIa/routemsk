@@ -22,9 +22,9 @@
 <header class="header"><div class="container header-inner"><a class="logo" href="/">ROUTE<span>/</span>MSK</a><a class="back" href="/">← На главную</a></div></header>
 <main>
   <div class="container hero">
-    <span class="status" id="serviceStatus">Подключаем API</span>
+    <span class="status" id="serviceStatus">Проверка доступна</span>
     <h1>Проверить грузовой пропуск по госномеру</h1>
-    <p class="lead">Статус, зона действия, срок и дата аннулирования — когда источник её возвращает. Интерфейс уже готов, автоматическая проверка включается отдельно.</p>
+    <p class="lead">Введите госномер автомобиля. Сервис запросит актуальные данные через backend ROUTEMSK и покажет статус, зону действия, срок и дату аннулирования, когда источник её возвращает.</p>
     <section class="checker" aria-labelledby="checkerTitle">
       <h2 id="checkerTitle" style="position:absolute;left:-9999px">Форма проверки пропуска</h2>
       <div class="form-row">
@@ -34,7 +34,7 @@
       <p class="hint" id="hint">Можно вводить русскими или латинскими буквами. Пример: А123АА777.</p>
       <div id="message" class="message" role="status" aria-live="polite"></div>
       <div class="fallback" id="fallback">
-        <p>Пока автоматическая проверка не активирована, специалист может проверить пропуск вручную и помочь с новым оформлением.</p>
+        <p>Если автоматическая проверка временно недоступна, специалист может проверить пропуск вручную и помочь с новым оформлением.</p>
         <div class="fallback-actions"><a class="btn btn-primary" href="https://t.me/Mary_Romanova_tg" target="_blank" rel="noopener noreferrer" data-event="telegram_click">Telegram</a><a class="btn btn-secondary" href="https://wa.me/79687135343?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%BD%D1%83%D0%B6%D0%BD%D0%BE%20%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%B8%D1%82%D1%8C%20%D0%B3%D1%80%D1%83%D0%B7%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%BF%D1%80%D0%BE%D0%BF%D1%83%D1%81%D0%BA" target="_blank" rel="noopener noreferrer" data-event="whatsapp_click">WhatsApp</a></div>
       </div>
       <section id="result" class="result" aria-live="polite">
@@ -52,7 +52,7 @@
 <script>
 'use strict';
 const API_URL='https://routemsk-api.onrender.com/api/permit';
-const CHECK_ENABLED=false; // switch to true after API_ASSIST_KEY is configured and verified
+const CHECK_ENABLED=true;
 const $=id=>document.getElementById(id);
 const latinToCyr={A:'А',B:'В',E:'Е',K:'К',M:'М',H:'Н',O:'О',P:'Р',C:'С',T:'Т',Y:'У',X:'Х'};
 function normalizePlate(value){return value.toUpperCase().replace(/[\s-]/g,'').split('').map(ch=>latinToCyr[ch]||ch).join('')}
