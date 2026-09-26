@@ -1,7 +1,8 @@
 const http = require('http');
 
 const PORT = process.env.PORT || 10000;
-const UPSTREAM = 'https://transport.mos.ru/api/reestr-gruzoviki/search';
+const API_ASSIST_URL = 'https://service.api-assist.com/parser/transport_mos_api/';
+const API_ASSIST_KEY = String(process.env.API_ASSIST_KEY || '').trim();
 
 const LATIN_TO_CYR = Object.freeze({
   A:'А', B:'В', E:'Е', K:'К', M:'М', H:'Н', O:'О', P:'Р', C:'С', T:'Т', Y:'У', X:'Х'
@@ -11,7 +12,7 @@ function normalizePlate(value='') {
   return String(value)
     .trim()
     .toUpperCase()
-    .replace(/\s+/g, '')
+    .replace(/[\s-]+/g, '')
     .replace(/[ABEKMHOPCTYX]/g, ch => LATIN_TO_CYR[ch] || ch);
 }
 
@@ -63,23 +64,35 @@ async function handlePermit(req, res) {
     return sendJson(res, 400, { ok:false, error:'Проверьте формат госномера.', plate });
   }
 
+  if (!API_ASSIST_KEY) {
+    return sendJson(res, 503, {
+      ok:false,
+      error:'API проверки пока не настроен: отсутствует ключ API Assist.',
+      code:'API_ASSIST_NOT_CONFIGURED'
+    });
+  }
+
+  const url = new URL(API_ASSIST_URL);
+  url.searchParams.set('key', API_ASSIST_KEY);
+  url.searchParams.set('regNumber', plate);
+
   let upstream;
   try {
-    upstream = await fetch(UPSTREAM, {
-      method:'POST',
+    upstream = await fetch(url, {
+      method:'GET',
       headers:{
-        'Content-Type':'application/json',
-        'Accept':'application/json, text/plain, */*',
+        'Accept':'application/json',
         'User-Agent':'ROUTEMSK/1.0 (+https://routemsk.ru)'
       },
-      body: JSON.stringify({
-        type:'byTransportRegNumber',
-        byTransportRegNumber: plate
-      })
+      signal: AbortSignal.timeout(15000)
     });
   } catch (error) {
-    console.error('Upstream network error:', error);
-    return sendJson(res, 502, { ok:false, error:'Не удалось связаться с реестром Москвы.' });
+    console.error('API Assist network error:', error);
+    return sendJson(res, 502, {
+      ok:false,
+      error:'Не удалось связаться с сервисом проверки пропусков.',
+      code:'API_ASSIST_NETWORK_ERROR'
+    });
   }
 
   const raw = await upstream.text();
@@ -88,15 +101,33 @@ async function handlePermit(req, res) {
   catch (_) { data = { raw }; }
 
   if (!upstream.ok) {
-    console.error('Upstream HTTP error:', upstream.status, raw.slice(0,500));
-    return sendJson(res, 502, {
+    console.error('API Assist HTTP error:', upstream.status, raw.slice(0,500));
+    return sendJson(res, upstream.status === 403 ? 503 : 502, {
       ok:false,
-      error:'Реестр Москвы вернул ошибку.',
-      upstreamStatus: upstream.status
+      error:(data && data.error) || 'Сервис проверки вернул ошибку.',
+      provider:'api-assist',
+      upstreamStatus:upstream.status,
+      errorCode:data && data.error_code ? data.error_code : undefined
     });
   }
 
-  return sendJson(res, 200, { ok:true, plate, data });
+  if (!data || Number(data.success) !== 1) {
+    const providerError = data && data.error ? String(data.error) : '';
+    console.error('API Assist unsuccessful response:', raw.slice(0,500));
+    return sendJson(res, providerError ? 502 : 503, {
+      ok:false,
+      error:providerError || 'Источник временно не ответил. Повторите проверку через минуту.',
+      provider:'api-assist',
+      errorCode:data && data.error_code ? data.error_code : undefined
+    });
+  }
+
+  return sendJson(res, 200, {
+    ok:true,
+    plate,
+    provider:'api-assist',
+    data
+  });
 }
 
 const server = http.createServer(async (req, res) => {
@@ -108,7 +139,12 @@ const server = http.createServer(async (req, res) => {
   }
 
   if (req.method === 'GET' && (req.url === '/' || req.url === '/health')) {
-    return sendJson(res, 200, { ok:true, service:'routemsk-api' });
+    return sendJson(res, 200, {
+      ok:true,
+      service:'routemsk-api',
+      provider:'api-assist',
+      configured:Boolean(API_ASSIST_KEY)
+    });
   }
 
   if (req.method === 'POST' && req.url === '/api/permit') {
@@ -119,5 +155,5 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, '0.0.0.0', () => {
-  console.log(`ROUTEMSK API listening on ${PORT}`);
+  console.log(`ROUTEMSK API listening on ${PORT}; API Assist configured: ${Boolean(API_ASSIST_KEY)}`);
 });
