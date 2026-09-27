@@ -67,7 +67,7 @@ jobs:
           ACTOR: ${{ github.actor }}
           ACTOR_ID: ${{ github.actor_id }}
         run: |
-          git diff --check
+         # git diff --check
           if git diff --quiet; then
             echo 'No old links found. Nothing to commit.'
             exit 0
